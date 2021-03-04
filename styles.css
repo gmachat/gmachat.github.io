@@ -1,0 +1,122 @@
+:root{
+  --primary-color: #f8f1f1;
+  --secondary-color: #ffa62b;
+  --tertiary-color: #db6400;
+  --quaternary-color: #16697a;
+  font-family: Arial, Helvetica, sans-serif;
+}
+*{
+  margin: 0px;
+}
+
+a{
+  text-decoration: none;
+  color:inherit
+}
+
+/*--------------------------NAVBAR--------------------------------*/
+
+#master-grid{
+  display: grid;
+  grid-template-columns: 10% 80% 90%;
+  grid-template-rows: auto auto;
+  gap: 15px;
+}
+
+nav{
+  grid-column: 1/ span3;
+  grid-row: 1;
+  height: 3em;
+}
+
+#nav-container{
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  background-color: var(--primary-color);
+  color: var(--quaternary-color);
+  height: inherit;
+}
+
+.nav-item{
+  padding: 1em
+}
+
+.nav-item:hover{
+  background-color: var(--quaternary-color);
+  color: var(--primary-color);
+}
+
+#nav-left{
+height: inherit;
+display: inline-flex;
+align-items: center;
+justify-content: left;
+}
+
+#nav-logo{
+  height: inherit;
+  margin: 0px 10px;
+}
+
+#personal-icon{
+  height: 100%;
+}
+
+
+#nav-middle{
+
+}
+
+#nav-right{
+
+}
+
+/*--------------------------------------MAIN------------------------------------------*/
+
+main{
+  grid-column: 2;
+  grid-row: 2;
+  color: var(--primary-color);
+  background-color: var(--quaternary-color);
+  border: 3px var(--secondary-color) solid;
+  box-shadow: 3px 3px 2px 1px var(--tertiary-color);
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 500px;
+}
+
+.card{
+  position: relative;
+  border: 15px var(--tertiary-color) solid;
+  width: 40%;
+  margin: 20px;
+  background-color: var(--primary-color);
+}
+
+.card-title{
+  background-color: var(--quaternary-color);
+  color: var(--primary-color);
+  text-align: center;
+  padding: 1rem 0em;
+  border-bottom: 2px var(--tertiary-color) solid;
+}
+
+.card-photo-frame{
+  display: flex;
+  justify-content: center;
+}
+
+.card-photo{
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-width: 80%;
+  max-width: 100%;
+  min-height: 300px;
+  max-height: 70%;
+}
+
+#full-stack-photo{
+  background-image: url("resources/images/card-photo-1.png");
+  
+}
