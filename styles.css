@@ -167,6 +167,7 @@ main{
   color: var(--primary-color);
   text-align: center;
   padding: 1rem 0em;
+  font-size: 1.3em;
   border-bottom: 2px var(--tertiary-color) solid;
 }
 
@@ -174,6 +175,11 @@ main{
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.card-text-box{
+  padding: 1em;
+color: var(--quaternary-color)
 }
 
 .card-photo{
