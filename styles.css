@@ -1,4 +1,4 @@
-:root{
+:root {
   --primary-color: #f8f1f1;
   --secondary-color: #ffa62b;
   --tertiary-color: #db6400;
@@ -10,64 +10,66 @@
   font-family: Poppins, sans-serif;
   background-color: var(--primary-color);
 }
-*{
+
+* {
   margin: 0px;
 }
 
-a{
+a {
   text-decoration: none;
-  color:inherit
+  color: inherit
 }
 
-#master-grid{
+#master-grid {
   display: grid;
   grid-template-columns: 10% auto 10%;
   grid-template-rows: auto auto auto;
   gap: 15px;
   overflow: hidden;
 }
+
 /*---------------------------PORTRAIT PHOTO--------------------------*/
 
-#portrait-frame{
-grid-row: 1;
-grid-column: 1/ span 3;
-height: 100vh;
-width: 100vw;
-overflow: hidden;
+#portrait-frame {
+  grid-row: 1;
+  grid-column: 1/ span 3;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }
 
-#portait-photo{
- position: relative;
- background-image:linear-gradient(to bottom, var(--quaternary-color-filter), var(--quaternary-color-filter)),
+#portait-photo {
+  position: relative;
+  background-image: linear-gradient(to bottom, var(--quaternary-color-filter), var(--quaternary-color-filter)),
     url('./resources/images/tailgate.jpg');
- height: 100%;
- width: 100%;
- background-position: center;
- background-repeat: no-repeat;
- background-size: cover;
- display: flex;
- justify-content: center;
- align-items: center;
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#welcome-box{
-height: 12vh;
-width: 20vw;
-/* border-radius: 1vh; */
-display: flex;
-justify-content: center;
-flex-direction: column;
-align-items: center;
-border: 2px var(--tertiary-color) solid;
-padding: 3vh;
-color: var(--primary-color);
-font-weight: 600;
-font-size: 1.2em;
-line-height: 1.7em;
-text-align: center;
+#welcome-box {
+  height: 12vh;
+  width: 20vw;
+  /* border-radius: 1vh; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border: 2px var(--tertiary-color) solid;
+  padding: 3vh;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 1.2em;
+  line-height: 1.7em;
+  text-align: center;
 }
 
-#see-more{
+#see-more {
   padding: 1vh;
   margin-top: 1vh;
   color: var(--primary-color);
@@ -75,9 +77,9 @@ text-align: center;
   border-radius: .5vh;
 }
 
-#see-more:hover{
+#see-more:hover {
   color: var(--quaternary-color);
-  background-color: var(--primary-color); 
+  background-color: var(--primary-color);
 }
 
 
@@ -87,45 +89,45 @@ text-align: center;
 
 
 
-nav{
+nav {
   grid-column: 2;
   grid-row: 2;
   height: 3em;
 }
 
-#nav-container{
+#nav-container {
   background-color: var(--primary-color);
   color: var(--quaternary-color);
   height: inherit;
 }
 
-.nav-item{
+.nav-item {
   padding: 1em
 }
 
-.nav-item:hover{
+.nav-item:hover {
   background-color: var(--quaternary-color);
   color: var(--primary-color);
 }
 
-#nav-items{
-width: 100%;
-height: inherit;
-display: inline-flex;
-align-items: center;
-justify-content: space-between;
+#nav-items {
+  width: 100%;
+  height: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-#contact-info{
+#contact-info {
   justify-self: flex-end;
 }
 
-#nav-logo{
+#nav-logo {
   height: inherit;
   margin: 0px 10px;
 }
 
-#personal-icon{
+#personal-icon {
   height: 100%;
 }
 
@@ -134,7 +136,7 @@ justify-content: space-between;
 
 /*--------------------------------------MAIN------------------------------------------*/
 
-main{
+main {
   grid-column: 2;
   grid-row: 3;
   color: var(--primary-color);
@@ -148,18 +150,18 @@ main{
   justify-content: center;
 }
 
-.card{
+.card {
   position: relative;
   border: 15px var(--tertiary-color) solid;
   width: 40%;
   margin: 20px;
   background-color: var(--primary-color);
   display: grid;
-  grid-template-rows: 5em 12em auto ;
-  
+  grid-template-rows: 5em 12em auto;
+
 }
 
-.card-title{
+.card-title {
   background-color: var(--quaternary-color);
   color: var(--primary-color);
   text-align: center;
@@ -172,20 +174,21 @@ main{
   grid-row: 1;
 }
 
-.card-photo-frame{
+.card-photo-frame {
   border-top: 2px var(--tertiary-color) solid;
   grid-row: 2;
   width: 100%;
 }
 
-.card-photo{
+.card-photo {
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
   border-bottom: 2px var(--tertiary-color) solid;
 }
-.card-text-box{
+
+.card-text-box {
   grid-row: 3;
   position: relative;
   padding: 1em;
@@ -196,293 +199,130 @@ main{
   font-size: 1.2em;
 }
 
-
-
-
-#full-stack-photo{
+#full-stack-photo {
   background-image: linear-gradient(to bottom, var(--tertiary-color-filter), var(--tertiary-color-filter)),
-  url('resources/images/prgramming_banner.jpg');
+    url('resources/images/prgramming_banner.jpg');
 }
 
-#army-vet-photo{
+#army-vet-photo {
   background-image: linear-gradient(to bottom, var(--tertiary-color-filter), var(--tertiary-color-filter)),
-  url('resources/images/army-vet.jpeg');
+    url('resources/images/army-vet.jpeg');
 }
-
 
 
 /*-----------------------------Screen Width 1024---------------------------------*/
 
-@media (max-width: 1024px){
+@media (max-width: 1024px) {
 
-  #master-grid{
-    display: grid;
-    grid-template-columns: auto auto 10%;
-    grid-template-rows: auto auto auto;
-    gap: 15px;
-    overflow-x: hidden;
+  #master-grid {
+    grid-template-columns: 10% auto 10%;
   }
 
-  #portrait-frame{
-    grid-row: 1;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    }
 
-  #welcome-box{
-    height: 12vh;
+  #welcome-box {
     width: 40vw;
     padding: 5vh;
-    font-weight: 600;
     line-height: 1.7em;
     font-size: 1em;
-    }
-
-  main{
-    grid-column: 2;
-    grid-row: 3;
-    color: var(--primary-color);
-    background-color: var(--quaternary-color);
-    border: 3px var(--secondary-color) solid;
-    box-shadow: 3px 3px 2px 1px var(--tertiary-color);
-    display: inline-flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    height: auto;
-    justify-content: center;
   }
-  
-  .card{
-    position: relative;
-    border: 15px var(--tertiary-color) solid;
+
+  main {
+    box-sizing: border-box;
+  }
+
+  .card {
     min-width: 350px;
     width: 100%;
-    margin: 20px;
-    background-color: var(--primary-color);
-    display: grid;
-    grid-template-rows: 5em 12em auto ;
-    
   }
-  
-  .card-title{
-    background-color: var(--quaternary-color);
-    color: var(--primary-color);
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    font-size: 1.8em;
-    grid-row: 1;
-  }
-  
-  .card-photo-frame{
-    border-top: 2px var(--tertiary-color) solid;
-    grid-row: 2;
-    width: 100%;
-  }
-  
-  .card-photo{
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    border-bottom: 2px var(--tertiary-color) solid;
-  }
-  .card-text-box{
-    grid-row: 3;
-    position: relative;
-    padding: 1em;
-    color: var(--quaternary-color);
-    display: inline-flex;
-    height: 100%;
-    align-items: middle;
-    font-size: 1.2em;
-  }
-  
-  
-  
-  
-  #full-stack-photo{
-    background-image: linear-gradient(to bottom, var(--tertiary-color-filter), var(--tertiary-color-filter)),
-    url('resources/images/prgramming_banner.jpg');
-  }
-  
-  #army-vet-photo{
-    background-image: linear-gradient(to bottom, var(--tertiary-color-filter), var(--tertiary-color-filter)),
-    url('resources/images/army-vet.jpeg');
-  }
-  
+
+
 }
 
 
-/*-----------------------------Screen Width 450---------------------------------*/
+/*-----------------------------Screen Width 512---------------------------------*/
 
 
-@media (max-width: 450px){
+@media (max-width: 512px) {
 
 
-  #master-grid{
-    display: grid;
+  #master-grid {
     grid-template-columns: auto;
-    grid-template-rows: auto auto auto;
     gap: 0;
-    overflow-x: hidden;
   }
 
-  #portrait-frame{
+  #portrait-frame {
     grid-row: 1;
     grid-column: 1;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    }
-    
+  }
 
-  #portait-photo{
-    position: relative;
-    background-image:linear-gradient(to bottom, var(--quaternary-color-filter), var(--quaternary-color-filter)),
-       url('./resources/images/tailgate.jpg');
-    height: 100%;
-    width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   }
-
-
-  #welcome-box{
-    height: 12vh;
-    width: 40vw;
-    padding: 5vh;
-    font-weight: 600;
-    line-height: 1.7em;
+  #welcome-box {
     font-size: .7em;
-    }
+  }
 
-    
-    /* #see-more{
-      padding: 1vh;
-      margin-top: 1vh;
-      color: var(--primary-color);
-      background-color: var(--quaternary-color);
-      border-radius: .5vh;
-    } */
+  nav {
+    grid-column: 1;
+    grid-row: 2;
+    height: 3em;
+    padding: .5em 0px;
+    width: 100vw;
+  }
 
+  #nav-container {
+    display: block;
+    background-color: var(--primary-color);
+    color: var(--quaternary-color);
+    height: inherit;
+    width: 100vw;
+  }
 
-nav{
-  grid-column: 1;
-  grid-row: 2;
-  height: 3em;
-  padding: .5em 0px;
+  .nav-item {
+    padding: 1em
+  }
 
-}
+  .nav-item:hover {
+    background-color: var(--quaternary-color);
+    color: var(--primary-color);
+  }
 
-#nav-container{
-  display: block;
-  background-color: var(--primary-color);
-  color: var(--quaternary-color);
-  height: inherit;
-  width: 100vw;
-}
+  #nav-items {
+    grid-column: 1;
+    height: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-.nav-item{
-  padding: 1em
-}
+  #nav-logo {
+    height: inherit;
+    margin: 0px 10px;
+  }
 
-.nav-item:hover{
-  background-color: var(--quaternary-color);
-  color: var(--primary-color);
-}
+  #personal-icon {
+    height: 100%;
+  }
 
-#nav-items{
-grid-column: 1;
-height: inherit;
-display: inline-flex;
-align-items: center;
-justify-content: space-between;
-}
-
-#nav-logo{
-  height: inherit;
-  margin: 0px 10px;
-}
-
-#personal-icon{
-  height: 100%;
-}
-
-
-
-
-  main{
+  main {
     grid-row: 3;
     grid-column: 1;
     width: 100%;
     border: none;
     box-shadow: none;
-    display: inline-flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    height: auto;
-    justify-content: center;
   }
-  
-  .card{
-    position: relative;
+
+  .card {
     border: 5px var(--tertiary-color) solid;
     min-width: 200px;
-    width: 100%;
     margin: 0px;
-    background-color: var(--primary-color);
-    display: grid;
-    grid-template-rows: 5em 12em auto ;
-    
+
   }
-  
-  .card-title{
-    height: 100%;
-    width: 100%;
+
+  .card-title {
     font-size: 1.2em;
-    grid-row: 1;
   }
-  
-  .card-photo-frame{
-    border-top: 2px var(--tertiary-color) solid;
-    grid-row: 2;
-    width: 100%;
-  }
-  
-  .card-text-box{
-    grid-row: 3;
-    position: relative;
-    padding: 1em;
-    color: var(--quaternary-color);
-    display: inline-flex;
-    height: 100%;
-    align-items: middle;
+
+  .card-text-box {
     font-size: 1em;
   }
-  
-  
-  #full-stack-photo{
-    background-image: linear-gradient(to bottom, var(--tertiary-color-filter), var(--tertiary-color-filter)),
-    url('resources/images/prgramming_banner.jpg');
-  }
-  
-  #army-vet-photo{
-    background-image: linear-gradient(to bottom, var(--tertiary-color-filter), var(--tertiary-color-filter)),
-    url('resources/images/army-vet.jpeg');
-  }
-  
-  
-
-
 
 
 }
