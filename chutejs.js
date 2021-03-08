@@ -54,7 +54,6 @@ function chutejs() {
 
   //disable the scrollbar, useful for things like modals
   this.disableScrollBar = () =>  {
-    console.log('diable')
 
     document.body.style.overflow = 'hidden';
     document.querySelector('html').scrollTop = window.scrollY;
@@ -62,7 +61,6 @@ function chutejs() {
   
   //enables the scroll 
   this.enableScrollBar = () => {
-    console.log('enable')
     document.body.style.overflow = null;
     }
 

@@ -10,7 +10,6 @@ window.onload =  function() {
     navItems.classList.toggle("nav-active")
     navItems.classList.toggle("nav-inactive")
     burgerMenu.classList.toggle("toggle")
-    chute.disableScrollBar()
   })
 }
 
@@ -18,19 +17,16 @@ console.log(document.querySelector("nav").scrollTop)
 
 const handleCardClick = (event, el) => {
   const modal = chute.createFullElement("div",  {"class": "modal", "id": "modal"})
-  modal.addEventListener("click", (event) => {modal.remove(); chute.enableScrollBar()})
+  modal.addEventListener("click", (event) => {modal.remove()})
   document.getElementById("root").prepend(modal)
   const targetCard = el.cloneNode(true)
   chute.addToAttributes(targetCard, {"class" : "card-clicked"})
   chute.preventBubbling("click", targetCard)
   modal.append(targetCard)
-  chute.disableScrollBar()
 } 
 
 //activate nav-bar-sliding
-(() => {
-  
-})()
+
 
 
 

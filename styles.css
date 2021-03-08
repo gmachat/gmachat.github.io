@@ -399,11 +399,12 @@ main {
     position: relative;
     align-items: center;
     justify-content: center;
-    width: 2em;
-    height: 3em;
+    width: fit-content;
+    height: fit-content;
     background-color: inherit;
     right: 8vw;
   }
+
 
   .line {
     height: 5px;
@@ -413,17 +414,52 @@ main {
     border-radius: 1px;
   }
 
-  .toggle .line1 {
-    transform: rotate(-45deg) translate(-20px, -5px);
+  .line1 {
+    transform: rotate(0deg) translate(0px, 0px);
     transition: transform 0.25s ease-in;
   }
 
+
+  @keyframes lineappear {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .line2 {
+    animation: lineappear .15s step-end;
+  }
+
+  .line3 {
+    transform: rotate(0deg) translate(0px, 0px);
+    transition: transform 0.25s ease-in;
+  }
+
+
+  .toggle .line1 {
+    transform: rotate(45deg) translate(0px, 16px);
+    transition: transform 0.25s ease-in;
+  }
+
+  @keyframes linedisappear {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
   .toggle .line2 {
+    animation: linedisappear 0s step-end;
     opacity: 0;
   }
 
   .toggle .line3 {
-    transform: rotate(45deg) translate(-20px, 5px);
+    transform: rotate(-45deg) translate(0px, -16px);
     transition: transform 0.25s ease-in;
   }
 
