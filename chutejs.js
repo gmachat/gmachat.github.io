@@ -47,8 +47,24 @@ function chutejs() {
       return node
     }
 
+//quick function to prevent bubbling form a type of event and element
+  this.preventBubbling = (type, el) => {
+    el.addEventListener(type, (e) => e.stopPropagation())
+  } 
 
+  //disable the scrollbar, useful for things like modals
+  this.disableScrollBar = () =>  {
+    console.log('diable')
 
+    document.body.style.overflow = 'hidden';
+    document.querySelector('html').scrollTop = window.scrollY;
+    }
+  
+  //enables the scroll 
+  this.enableScrollBar = () => {
+    console.log('enable')
+    document.body.style.overflow = null;
+    }
 
 
 }

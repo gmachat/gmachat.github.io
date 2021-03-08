@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="chutejs.js" async defer></script>
+  <script src="chutejs.js" async ></script>
   <script src="app.js" async defer></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <link rel='stylesheet' href="styles.css">
   <link rel="icon" href="./resources/images/logo-transparent.png">
   <title>Greg Machat</title>
 </head>
-<body>
+<body id="root" class="preload">
   <div id="master-grid">
   <div id="portrait-frame">
     <div id="portait-photo">
@@ -34,16 +34,22 @@
   </div>
   <nav>
     <div id="nav-container">
-    <div id="nav-items">
-    <div id="nav-logo"><img id="personal-icon" src="./resources/images/logo-transparent.png"></div>
-    <a href="#"><div class="nav-item">About Me</div></a>
-    <a href="#"><div class="nav-item">Projects</div></a>
-    <a href="#"><div class="nav-item" id="contact-info">Contact Me</div></a>
-  </div>
+      <div class="nav-item" id="nav-icon"><div id="nav-logo"><img id="personal-icon" src="./resources/images/logo-transparent.png"></div></div>
+      
+      <div class="burger-menu">
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+        <div class="line line3"></div>
+      </div>
+    <ul class="nav-items">
+    <a href="#" class="nav-item"><li >About Me</li></a>
+    <a href="#" class="nav-item"><li >Projects</li></a>
+    <a href="#" class="nav-item" ><li id="contact-info">Contact Me</li></a>
+    </ul>
 </div>
     </nav>
     <main>
-      <div class="card card-clickable">
+      <div class="card">
         <h3 class="card-title"> Full Stack Software Engineer</h3>
         <div class="card-photo-frame">
         <div class="card-photo" id="full-stack-photo"></div>
