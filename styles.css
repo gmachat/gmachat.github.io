@@ -354,7 +354,6 @@ main {
     position: relative;
     right: -100%;
     display: none;
-    height: 0%;
     display: flex;
     z-index: 100;
     flex-direction: column;
