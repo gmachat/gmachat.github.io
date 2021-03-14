@@ -64,5 +64,8 @@ function chutejs() {
     document.body.style.overflow = null;
     }
 
+  //takes in an element list and a config object.
+  //config object takes into account height, width and spacing of eeach card
+
 
 }

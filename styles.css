@@ -1,6 +1,6 @@
 :root {
   --primary-color: #f8f1f1;
-  --secondary-color: #ffa62b;
+  --secondary-color: #d2f7e9;
   --tertiary-color: #db6400;
   --quaternary-color: #16697a;
   --primary-color-filter: #f8f1f16c;
@@ -36,7 +36,7 @@ ul {
 #master-grid {
   display: grid;
   grid-template-columns: 10% auto 10%;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: auto auto auto auto;
   /* gap: 15px; */
   overflow: hidden;
 }
@@ -182,15 +182,15 @@ nav {
 }
 
 
-/*--------------------------------------MAIN------------------------------------------*/
+/*--------------------------------------ABOUT------------------------------------------*/
 
-main {
+about {
   grid-column: 2;
   grid-row: 3;
   color: var(--primary-color);
   background-color: var(--quaternary-color);
   border: 3px var(--secondary-color) solid;
-  box-shadow: 3px 3px 2px 1px var(--tertiary-color);
+  /* box-shadow: 3px 3px 2px 1px var(--tertiary-color); */
   display: inline-flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -206,6 +206,7 @@ main {
   background-color: var(--primary-color);
   display: grid;
   grid-template-rows: 5em 12em auto;
+  cursor: pointer;
 }
 
 .card-clicked {
@@ -264,7 +265,191 @@ main {
     url('resources/images/army-vet.jpeg');
 }
 
+/*-------------------------------PROJECTS------------------------------------*/
 
+projects{
+  grid-row: 4;
+  grid-column: 2;
+  height: 90vh;
+  color: var(--quaternary-color);
+  display: grid;
+  grid-template-rows: min-content auto;
+  /* box-shadow: 3px 3px 2px 1px var(--tertiary-color); */
+
+}
+
+#project-header{
+  height: 4em;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  grid-row: 1;
+}
+
+.section-title{
+
+}
+
+.wrapper{
+  grid-row: 2;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-height: 60vw;
+  overflow: hidden;
+  background-color: var(--quaternary-color);
+
+  border: 3px var(--quaternary-color) solid;
+}
+
+.wrapper:before,
+.wrapper:after {
+	display: block;
+	content: "";
+	position: absolute;
+	top: 0;
+	width: 20%;
+	height: 100%;
+	z-index: 3;
+}
+
+.wrapper:before {
+	left: 0;
+	/* background: linear-gradient(to right, var(--secondary-color) 0%, rgba(0,0,0,0) 100%); */
+}
+
+.wrapper:after {
+	right: 0;
+	/* background: linear-gradient(to left, var(--secondary-color) 0%, rgba(0,0,0,0) 100%); */
+}
+
+
+
+.carousel {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 90%;
+  background-color: var(--secondary-color);
+}
+
+.carousel-button{
+  position: absolute;
+	top: 50%;
+	z-index: 4;
+	width: 50%;
+	height: 100%;
+	transform: translateX(-50%) translateY(-50%) scale(.8);
+	cursor: pointer;
+}
+
+#project-button-next{
+	left: 100%;
+
+}
+#project-button-prev{
+  left: 0;
+
+}
+
+.project-card:nth-child(1) {
+	left: 0;
+	z-index: 1;
+	transform: translateX(-100%) scale(.8);
+}
+
+.project-card:nth-child(2) {
+	left: 0;
+	z-index: 2;
+	transform: translateX(-50%) scale(.8);
+}
+
+.project-card:nth-child(3) {
+	left: 50%;
+	z-index: 4;
+	transform: translateX(-50%) scale(1);
+}
+
+.project-card:nth-child(4) {
+	left: 100%;
+	z-index: 2;
+	transform: translateX(-50%) scale(.8);
+}
+
+.project-card:nth-child(n+5) {
+	left: 100%;
+	z-index: 1;
+	transform: scale(.8);
+}
+
+.project-card{
+  position: absolute;
+  width: 45%;
+  height: 70%;
+  transition: 1s all ease;
+  border: 15px var(--quaternary-color) solid;
+  background-color: var(--primary-color);
+  display: grid;
+  grid-template-rows: 5em 12em auto;
+  cursor: pointer;
+  margin:20px
+}
+
+.project-card-title{
+  background-color: var(--tertiary-color);
+  color: var(--primary-color);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-size: 1.8em;
+  grid-row: 1;
+  box-sizing: border-box;
+  border-bottom: 3px var(--quaternary-color) solid;
+}
+
+.project-photo{
+  grid-row: 2;
+
+}
+
+#project-card-1{
+  background-image: linear-gradient(to bottom, var(--quaternary-color-filter), var(--quaternary-color-filter)),
+  url('resources/images/prgramming_banner.jpg');
+}
+#project-card-2{
+  background-image: linear-gradient(to bottom, var(--quaternary-color-filter), var(--quaternary-color-filter)),
+    url('resources/images/prgramming_banner.jpg');
+}
+#project-card-3{
+  background-image: linear-gradient(to bottom, var(--quaternary-color-filter), var(--quaternary-color-filter)),
+    url('resources/images/prgramming_banner.jpg');
+}
+#project-card-4{
+  background-image: linear-gradient(to bottom, var(--quaternary-color-filter), var(--quaternary-color-filter)),
+    url('resources/images/prgramming_banner.jpg');
+}
+#project-card-5{
+  background-image: linear-gradient(to bottom, var(--quaternary-color-filter), var(--quaternary-color-filter)),
+    url('resources/images/prgramming_banner.jpg');
+}
+
+.project-card-body{
+  grid-row: 3;
+  position: relative;
+  padding: 1em;
+  background-color: var(--primary-color);
+  color: var(--quaternary-color);
+  align-items: middle;
+  font-size: 1.2em;
+  border-top: 2px var(--quaternary-color) solid;
+
+}
 
 
 /*-----------------------------Screen Width 1024---------------------------------*/
@@ -284,7 +469,7 @@ main {
     font-size: 1em;
   }
 
-  main {
+  about {
     box-sizing: border-box;
   }
 
@@ -405,6 +590,8 @@ main {
     right: 8vw;
   }
 
+ 
+
 
   .line {
     height: 5px;
@@ -463,7 +650,7 @@ main {
     transition: transform 0.25s ease-in;
   }
 
-  main {
+  about {
     grid-row: 3;
     grid-column: 1;
     width: 100%;

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="chutejs.js" ></script>
+  <script src="chutejs.js"></script>
   <script src="app.js" async defer></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -12,62 +13,122 @@
   <link rel="icon" href="./resources/images/logo-transparent.png">
   <title>Greg Machat</title>
 </head>
+
 <body id="root" class="preload">
   <div id="master-grid">
-  <div id="portrait-frame">
-    <div id="portait-photo">
-      <div id="welcome-box">
-        <div>
-          Greg Machat
+    <div id="portrait-frame">
+      <div id="portait-photo">
+        <div id="welcome-box">
+          <div>
+            Greg Machat
+          </div>
+          <div>
+            Software Engineer
+          </div>
+          <a href="#nav-container">
+            <div id="see-more">
+              See More
+
+            </div>
+          </a>
         </div>
-        <div>
-          Software Engineer
-        </div>
-        <a href="#nav-container">
-        <div id="see-more">
-          See More
-        
-        </div>
-      </a>
       </div>
     </div>
-  </div>
-  <nav>
-    <div id="nav-container">
-      <div class="nav-item" id="nav-icon"><div id="nav-logo"><img id="personal-icon" src="./resources/images/logo-transparent.png"></div></div>
-      
-      <div class="burger-menu">
-        <div class="line line1"></div>
-        <div class="line line2"></div>
-        <div class="line line3"></div>
+    <nav>
+      <div id="nav-container">
+        <div class="nav-item" id="nav-icon">
+          <div id="nav-logo"><img id="personal-icon" src="./resources/images/logo-transparent.png"></div>
+        </div>
+
+        <div class="burger-menu">
+          <div class="line line1"></div>
+          <div class="line line2"></div>
+          <div class="line line3"></div>
+        </div>
+        <ul class="nav-items">
+          <a href="#" class="nav-item">
+            <li>About Me</li>
+          </a>
+          <a href="#" class="nav-item">
+            <li>Projects</li>
+          </a>
+          <a href="#" class="nav-item">
+            <li id="contact-info">Contact Me</li>
+          </a>
+        </ul>
       </div>
-    <ul class="nav-items">
-    <a href="#" class="nav-item"><li >About Me</li></a>
-    <a href="#" class="nav-item"><li >Projects</li></a>
-    <a href="#" class="nav-item" ><li id="contact-info">Contact Me</li></a>
-    </ul>
-</div>
     </nav>
-    <main>
+    <about>
       <div class="card">
         <h3 class="card-title"> Full Stack Software Engineer</h3>
         <div class="card-photo-frame">
-        <div class="card-photo" id="full-stack-photo"></div>
-      </div>
-      <div class="card-text-box"><div>Experienced in fullstack development with Python and Django, JavaScript and React, and PostgreSQL, as well as HTML and CSS. Also familiar with MongoDB, Node.js, and Express.js.</div></div>
+          <div class="card-photo about-card-photo" id="full-stack-photo"></div>
+        </div>
+        <div class="card-text-box">
+          <div>Experienced in fullstack development with Python and Django, JavaScript and React, and PostgreSQL, as well as HTML and CSS. Also familiar with MongoDB, Node.js, and Express.js.</div>
+        </div>
       </div>
       <div class="card">
         <h3 class="card-title">Army Veteran</h3>
         <div class="card-photo-frame">
-        <div class="card-photo" id="army-vet-photo"></div>
+          <div class="card-photo about-card-photo" id="army-vet-photo"></div>
+        </div>
+        <div class="card-text-box">
+          <div>
+            Serving as a combat medic with the 82nd Airborne has provided unique skills that transfer directly
+            to the world of technology. Leadership, adaptability, and teamwork are all skills that are critical to success of a team both in an out of the military.</div>
+        </div>
       </div>
-      <div class="card-text-box">
-        <div>
-      Serving as a combat medic with the 82nd Airborne has provided unique skills that transfer directly 
-      to the world of technology.  Leadership, adaptability, and teamwork are all skills that are critical to success of a team both in an out of the military.</div>
-    </div>
+    </about>
+    <projects>
+      <div id="project-header">
+        <div class="section-title">Projects</div>
       </div>
-    </main>
+      <div class="wrapper">
+        <div class="carousel" id="project-carousel">
+          <div class="project-card">
+            <div class="project-card-title first">Test Card 1</div>
+            <div class="project-photo-frame">
+              <div class="card-photo project-photo" id="project-card-1"></div>
+            </div>
+            <div class="project-card-body">This is my super cool project 1 I really hope you like it</div>
+          </div>
+          <div class="project-card">
+            <div class="project-card-title">Test Card 2</div>
+            <div class="project-photo-frame">
+              <div class="card-photo project-photo" id="project-card-2"></div>
+            </div>
+            <div class="project-card-body">This is my super cool project 2 I really hope you like it</div>
+          </div>
+          <div class="project-card">
+            <div class="project-card-title">Test Card 3</div>
+            <div class="project-photo-frame">
+              <div class="card-photo project-photo" id="project-card-3"></div>
+            </div>
+            <div class="project-card-body">This is my super cool project 3 I really hope you like it</div>
+          </div>
+          <div class="project-card">
+            <div class="project-card-title">Test Card 4</div>
+            <div class="project-photo-frame">
+              <div class="card-photo project-photo" id="project-card-4"></div>
+            </div>
+            <div class="project-card-body">This is my super cool project 4 I really hope you like it</div>
+          </div>
+          <div class="project-card">
+            <div class="project-card-title">Test Card 5</div>
+            <div class="project-photo-frame">
+              <div class="card-photo project-photo" id="project-card-5"></div>
+            </div>
+            <div class="project-card-body">This is my super cool project 5 I really hope you like it</div>
+          </div>
+
+        </div>
+        <div id="project-button-next" class="carousel-button"></div>
+        <div id="project-button-prev" class="carousel-button"></div>
+      </div>
+    </projects>
+
   </div>
 </body>
+
 </html>

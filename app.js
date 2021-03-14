@@ -1,6 +1,8 @@
 let chute = new chutejs
 
-window.onload =  function() {
+
+//set up burger menu
+const setBurgerMenu = () => {
   const preload = document.getElementsByClassName("preload")[0]
   const burgerMenu = document.querySelector(".burger-menu")
   const navItems = document.querySelector(".nav-items")
@@ -13,8 +15,7 @@ window.onload =  function() {
   })
 }
 
-console.log(document.querySelector("nav").scrollTop)
-
+//Handle when a card is clicked to bring oup modal
 const handleCardClick = (event, el) => {
   const modal = chute.createFullElement("div",  {"class": "modal", "id": "modal"})
   modal.addEventListener("click", (event) => {modal.remove()})
@@ -25,12 +26,32 @@ const handleCardClick = (event, el) => {
   modal.append(targetCard)
 } 
 
-//activate nav-bar-sliding
+//Select all cards form ths about me section and add the click event listener
+const aboutCards = Array.from(document.getElementsByClassName("card"))
+aboutCards.forEach(el => {el.addEventListener('click', (event) => handleCardClick(event, el))})
+
+//Carousel
+const buildCarousel = () => {
+  console.log('content laoded')
+  const carousel = document.querySelector('#project-carousel');
+	let projectCards = document.querySelectorAll('.project-card');
+	const projectPrev = document.querySelector('#project-button-prev');
+	const projectNext= document.querySelector('#project-button-next');
+  projectPrev.addEventListener('click', function() {
+		carousel.insertBefore(projectCards [projectCards.length - 1], projectCards [0]);
+		projectCards  = document.querySelectorAll('.project-card');
+	});
+  projectNext.addEventListener('click', function() {
+		carousel.appendChild(projectCards[0]);
+		projectCards = document.querySelectorAll('.project-card');
+	});
+}
 
 
 
+// Set up page load
+window.onload =  function() {
+setBurgerMenu()
+buildCarousel()
 
-const cards = Array.from(document.getElementsByClassName("card"))
-
-cards.forEach(el => {el.addEventListener('click', (event) => handleCardClick(event, el))})
-
+}
