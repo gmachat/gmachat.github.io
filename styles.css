@@ -31,12 +31,14 @@ a {
 
 ul {
   list-style: none;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
 }
 
 #master-grid {
   display: grid;
   grid-template-columns: 10% auto 10%;
-  grid-template-rows: auto auto auto auto;
+  grid-template-rows: auto auto auto auto auto;
   /* gap: 15px; */
   overflow: hidden;
 }
@@ -173,8 +175,9 @@ nav {
   background-color: var(--primary-color);
 }
 
-#personal-icon {
-  height: 100%;
+.personal-icon {
+  height: inherit;
+  position: relative;
 }
 
 .burger-menu {
@@ -288,19 +291,16 @@ projects{
   grid-row: 1;
 }
 
-.section-title{
-
-}
+/* ------------------------------------------Carousel---------------------------------------------- */
 
 .wrapper{
   grid-row: 2;
   position: relative;
   width: 100%;
   height: 100%;
-  max-height: 60vw;
   overflow: hidden;
   background-color: var(--quaternary-color);
-
+  box-sizing: border-box;
   border: 3px var(--quaternary-color) solid;
 }
 
@@ -358,31 +358,31 @@ projects{
 .project-card:nth-child(1) {
 	left: 0;
 	z-index: 1;
-	transform: translateX(-100%) scale(.8);
+	transform: translate(-100%, 50%) scale(.8);
 }
 
 .project-card:nth-child(2) {
 	left: 0;
 	z-index: 2;
-	transform: translateX(-50%) scale(.8);
+	transform: translate(-50%, 50%) scale(.8);
 }
 
 .project-card:nth-child(3) {
 	left: 50%;
 	z-index: 4;
-	transform: translateX(-50%) scale(1);
+	transform: translate(-50%, 50%) scale(1);
 }
 
 .project-card:nth-child(4) {
 	left: 100%;
 	z-index: 2;
-	transform: translateX(-50%) scale(.8);
+	transform: translate(-50%, 50%) scale(.8);
 }
 
 .project-card:nth-child(n+5) {
 	left: 100%;
 	z-index: 1;
-	transform: scale(.8);
+	transform: translate(-50%, 50%) scale(.8);
 }
 
 .project-card{
@@ -395,7 +395,8 @@ projects{
   display: grid;
   grid-template-rows: 5em 12em auto;
   cursor: pointer;
-  margin:20px
+  margin:20px;
+  bottom: 50%;
 }
 
 .project-card-title{
@@ -451,7 +452,70 @@ projects{
 
 }
 
+/* --------------------------------------------Contact------------------------------------------------------- */
 
+contact{
+  grid-row:5;
+  grid-column: 2;
+  height:  4em;
+}
+
+#contact-bar{
+  position: relative;
+  height: inherit;
+  background-color: var(--tertiary-color);
+  color: var(--primary-color)
+
+}
+
+#contact-items{
+  height: inherit;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
+.contacts{
+  width:100%;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
+  
+}
+
+.contact-item .contact-link{
+  position: relative;
+  display:flex;
+  align-items: center;
+}
+
+#contact-title{
+  position: relative;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  font-size: 1.5em;
+}
+.contact-item{
+  height: 90%;
+  display: flex;
+  align-items: center;
+
+}
+#alt-icon{
+height: 105%;
+}
+
+
+.contact-icon{
+  position: relative;
+  height: inherit;
+  width: inherit;
+}
 /*-----------------------------Screen Width 1024---------------------------------*/
 
 @media (max-width: 1024px) {
@@ -460,7 +524,6 @@ projects{
   #master-grid {
     grid-template-columns: 10% auto 10%;
   }
-
 
   #welcome-box {
     width: 40vw;
@@ -477,6 +540,79 @@ projects{
     min-width: 350px;
     width: 100%;
   }
+
+  
+  .wrapper:before {
+    left: 0;
+    /* background: linear-gradient(to right, var(--secondary-color) 0%, rgba(0,0,0,0) 100%); */
+  }
+  
+  .wrapper:after {
+    right: 0;
+    /* background: linear-gradient(to left, var(--secondary-color) 0%, rgba(0,0,0,0) 100%); */
+  }
+  
+  
+  
+  .carousel {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 90%;
+    background-color: var(--secondary-color);
+  }
+  
+  .carousel-button{
+    position: absolute;
+    top: 50%;
+    z-index: 4;
+    width: 50%;
+    height: 100%;
+    transform: translateX(-50%) translateY(-50%) scale(.8);
+    cursor: pointer;
+  }
+  
+  #project-button-next{
+    left: 100%;
+  
+  }
+  #project-button-prev{
+    left: 0;
+  
+  }
+  
+  .project-card:nth-child(1) {
+
+    transform: translate(-100%, 50%) scale(.8);
+  }
+  
+  .project-card:nth-child(2) {
+    left: -100%;
+    z-index: 2;
+    transform: translate(-50%, 50%) scale(.8);
+  }
+  
+  .project-card:nth-child(3) {
+    transform: translate(-50%, 50%) scale(1);
+  }
+  
+  .project-card:nth-child(4) {
+    transform: translate(0%, 50%) scale(.8);
+  }
+  .project-card:nth-child(n+5) {
+    transform: translate(50%, 50%) scale(.8);
+  }
+
+  
+  .project-card{
+    width: 70%;
+    height: 90%;
+    margin: 0px;
+    bottom: 50%;
+  }
+  
+
 
 
 }

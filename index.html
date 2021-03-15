@@ -9,6 +9,7 @@
   <script src="app.js" async defer></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel='stylesheet' href="styles.css">
   <link rel="icon" href="./resources/images/logo-transparent.png">
   <title>Greg Machat</title>
@@ -37,7 +38,7 @@
     <nav>
       <div id="nav-container">
         <div class="nav-item" id="nav-icon">
-          <div id="nav-logo"><img id="personal-icon" src="./resources/images/logo-transparent.png"></div>
+          <div id="nav-logo"><img class="personal-icon" src="./resources/images/logo-transparent.png" alt="Greg Machat Personal Icon"></div>
         </div>
 
         <div class="burger-menu">
@@ -46,10 +47,10 @@
           <div class="line line3"></div>
         </div>
         <ul class="nav-items">
-          <a href="#" class="nav-item">
+          <a href="#about" class="nav-item">
             <li>About Me</li>
           </a>
-          <a href="#" class="nav-item">
+          <a href="#project-header" class="nav-item">
             <li>Projects</li>
           </a>
           <a href="#" class="nav-item">
@@ -58,7 +59,7 @@
         </ul>
       </div>
     </nav>
-    <about>
+    <about id="about">
       <div class="card">
         <h3 class="card-title"> Full Stack Software Engineer</h3>
         <div class="card-photo-frame">
@@ -127,6 +128,33 @@
         <div id="project-button-prev" class="carousel-button"></div>
       </div>
     </projects>
+    <contact id="contact">
+      <div id="contact-bar">
+        <div id="contact-items">
+        <ul class="contacts">
+          <li class="contact-item">
+            <div id="contact-title"><img class="personal-icon" id="alt-icon" src="./resources/images/logo-alt-transparent.png" alt="Greg Machat Personal Icon Alternate Colors"></div>
+          </li>
+          <li class="contact-item">
+            <a href="https://www.linkedin.com/in/gregory-machat/" target="_blank" class="contact-link"><img src="./resources/icons/linkedin-icon.svg" alt="linkedin icon" class="contact-icon">
+            </a>
+            </li>
+            <li class="contact-item">
+            <a href="https://www.facebook.com/greg.machat" target="_blank" class="contact-link"><img src="./resources/icons/facebook-icon.svg" alt="facebook icon" class="contact-icon">
+            </a>
+          </li>
+            <li class="contact-item">
+            <a href="https://twitter.com/machatgreg" target="_blank" class="contact-link"><img src="./resources/icons/twitter-icon.svg" alt="twitter icon" class="contact-icon">
+            </a>
+          </li>
+        <li class="contact-item">
+            <a href="https://github.com/gmachat" target="_blank" class="contact-link"><img src="./resources/icons/github-icon.svg" alt="github icon" class="contact-icon">
+            </a>
+          </li>
+        </ul>
+      </div>
+      </div>
+    </contact>
 
   </div>
 </body>
