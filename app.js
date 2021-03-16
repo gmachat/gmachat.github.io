@@ -1,6 +1,9 @@
 let chute = new chutejs
 
 
+//GLOBALS
+// let arrowTimer
+
 //set up burger menu
 const setBurgerMenu = () => {
   const preload = document.getElementsByClassName("preload")[0]
@@ -31,16 +34,27 @@ const aboutCards = Array.from(document.getElementsByClassName("card"))
 aboutCards.forEach(el => {el.addEventListener('click', (event) => handleCardClick(event, el))})
 
 //Set up carousel buttons when screen width is below 1024px
-const showCarouselButtons = () => {
-  let buttons = document.querySelectorAll(".carousel-button-hidden")
+let arrowTimer
+const showCarouselButtons =  (time) => {
+  console.log(event.target)
+  if(arrowTimer){
+    clearTimeout(arrowTimer)
+  }
+  let buttons = document.querySelectorAll(".carousel-button-class")
+  //just takes the first button as they all should have same classes at this point
+  if(buttons[0].className.includes('carousel-button-hidden')){
   buttons.forEach(btn => {
-    chute.setNewAttributes(btn, {"class": "carousel-button"})
-  })
-  setTimeout(()=> {
-    buttons.forEach(btn => {
-      chute.setNewAttributes(btn, {"class": "carousel-button-hidden"})
-    })
-  }, 3000)
+    chute.setNewAttributes(btn, {"class": "carousel-button carousel-button-class"})
+    btn.addEventListener("click", () => showCarouselButtons(2000))
+  })}
+  arrowTimer = window.setTimeout(()=> {
+      buttons.forEach(btn => {
+        chute.setNewAttributes(btn, {"class": "carousel-button-hidden carousel-button-class"})
+        console.log(arrowTimer, 'here')
+      })
+    }, time)
+    console.log(arrowTimer)
+
 }
 
 //Carousel
@@ -49,8 +63,8 @@ const buildCarousel = () => {
   const wrapper = document.querySelector('.wrapper');
 
 	let projectCards = document.querySelectorAll('.project-card');
-  carousel.addEventListener("mousemove", () => showCarouselButtons())
-  carousel.addEventListener("MSGestureTap", () => showCarouselButtons())
+  carousel.addEventListener("mousemove", () => showCarouselButtons(2000))
+  carousel.addEventListener("click", () => showCarouselButtons(2000))
 	const projectPrev = document.querySelector('#project-button-prev');
 	const projectNext= document.querySelector('#project-button-next');
   projectPrev.addEventListener('click', function() {
