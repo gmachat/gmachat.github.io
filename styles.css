@@ -304,7 +304,7 @@ projects{
   border: 3px var(--quaternary-color) solid;
 }
 
-.wrapper:before,
+/* .wrapper:before,
 .wrapper:after {
 	display: block;
 	content: "";
@@ -313,7 +313,7 @@ projects{
 	width: 20%;
 	height: 100%;
 	z-index: 3;
-}
+} */
 
 .wrapper:before {
 	left: 0;
@@ -388,12 +388,12 @@ projects{
 .project-card{
   position: absolute;
   width: 45%;
-  height: 70%;
+  height: 60%;
   transition: 1s all ease;
   border: 15px var(--quaternary-color) solid;
   background-color: var(--primary-color);
   display: grid;
-  grid-template-rows: 5em 12em auto;
+  grid-template-rows: minmax(4em, 5em) minmax(4em, 12em) auto;
   cursor: pointer;
   margin:20px;
   bottom: 50%;
@@ -563,6 +563,10 @@ height: 105%;
     background-color: var(--secondary-color);
   }
   
+  .carousel-button-hidden{
+    display: none;
+  }
+
   .carousel-button{
     position: absolute;
     display: flex;
@@ -956,6 +960,18 @@ height: 105%;
   
   .project-photo{
     grid-row: 2;
+  
+  }
+
+  .project-card-body{
+    grid-row: 3;
+    position: relative;
+    padding: 1em;
+    background-color: var(--primary-color);
+    color: var(--quaternary-color);
+    align-items: middle;
+    font-size: 1em;
+    border-top: 2px var(--quaternary-color) solid;
   
   }
   

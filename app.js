@@ -30,11 +30,27 @@ const handleCardClick = (event, el) => {
 const aboutCards = Array.from(document.getElementsByClassName("card"))
 aboutCards.forEach(el => {el.addEventListener('click', (event) => handleCardClick(event, el))})
 
+//Set up carousel buttons when screen width is below 1024px
+const showCarouselButtons = () => {
+  let buttons = document.querySelectorAll(".carousel-button-hidden")
+  buttons.forEach(btn => {
+    chute.setNewAttributes(btn, {"class": "carousel-button"})
+  })
+  setTimeout(()=> {
+    buttons.forEach(btn => {
+      chute.setNewAttributes(btn, {"class": "carousel-button-hidden"})
+    })
+  }, 3000)
+}
+
 //Carousel
 const buildCarousel = () => {
-  console.log('content laoded')
   const carousel = document.querySelector('#project-carousel');
+  const wrapper = document.querySelector('.wrapper');
+
 	let projectCards = document.querySelectorAll('.project-card');
+  carousel.addEventListener("mousemove", () => showCarouselButtons())
+  carousel.addEventListener("MSGestureTap", () => showCarouselButtons())
 	const projectPrev = document.querySelector('#project-button-prev');
 	const projectNext= document.querySelector('#project-button-next');
   projectPrev.addEventListener('click', function() {
@@ -46,6 +62,7 @@ const buildCarousel = () => {
 		projectCards = document.querySelectorAll('.project-card');
 	});
 }
+
 
 
 
