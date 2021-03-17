@@ -122,16 +122,6 @@ window.addEventListener('scroll', () => {
 })
 }
 
-// if(navBar.getBoundingClientRect().top <= 0){
-//   console.log('passed')
-//   navBar.style.position = 'fixed'
-//   navBar.style.top = '0px'
-//   navBar.style.width = '100%'
-// }
-
-
-
-
 
 
 // Set up page load

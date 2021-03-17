@@ -4,7 +4,7 @@
   --tertiary-color: #db6400;
   --quaternary-color: #16697a;
   --primary-color-filter: #f8f1f16c;
-  --secondary-color-filter: #ffa72b7a;
+  --secondary-color-filter: #d2f7e993;
   --tertiary-color-filter: #db630069;
   --quaternary-color-filter: #16697a8c;
   --nav-height: 96px;
@@ -208,7 +208,7 @@ about {
   grid-row: 3;
   color: var(--primary-color);
   background-color: var(--quaternary-color);
-  border: 3px var(--secondary-color) solid;
+  border: 3px var(--tertiary-color) solid;
   /* box-shadow: 3px 3px 2px 1px var(--tertiary-color); */
   display: inline-flex;
   flex-direction: row;
@@ -317,7 +317,7 @@ projects{
   overflow: hidden;
   background-color: var(--quaternary-color);
   box-sizing: border-box;
-  border: 3px var(--quaternary-color) solid;
+  border: 3px var(--tertiary-color) solid;
 }
 
 /* .wrapper:before,
@@ -379,31 +379,31 @@ display: none;
 
 }
 
-.project-card:nth-child(1) {
+.project-card:nth-child(2) {
 	left: 0;
 	z-index: 1;
 	transform: translate(-100%, 50%) scale(.8);
 }
 
-.project-card:nth-child(2) {
+.project-card:nth-child(3) {
 	left: 0;
 	z-index: 2;
 	transform: translate(-50%, 50%) scale(.8);
 }
 
-.project-card:nth-child(3) {
+.project-card:nth-child(4) {
 	left: 50%;
 	z-index: 4;
 	transform: translate(-50%, 50%) scale(1);
 }
 
-.project-card:nth-child(4) {
+.project-card:nth-child(5) {
 	left: 100%;
 	z-index: 2;
 	transform: translate(-50%, 50%) scale(.8);
 }
 
-.project-card:nth-child(n+5) {
+.project-card:nth-child(n+6) {
 	left: 100%;
 	z-index: 1;
 	transform: translate(0%, 50%) scale(.8);
@@ -620,7 +620,6 @@ height: 105%;
     height: 6vw;
     background-color: var(--quaternary-color-filter);
     cursor: pointer;
-    border-radius: 50%;
 
   }
   
@@ -633,7 +632,7 @@ height: 105%;
  .inner-project-button-next{
   transform: translateX(25%);
   border-top: 2vw solid transparent;
-  border-left: 2vw solid var(--secondary-color-filter);
+  border-left: 2vw solid var(--primary-color-filter);
   border-bottom: 2vw solid transparent;
 
  }
@@ -645,29 +644,29 @@ height: 105%;
   .inner-project-button-prev{
     transform: translateX(-25%);
     border-top: 2vw solid transparent;
-    border-right: 2vw solid var(--secondary-color-filter);
+    border-right: 2vw solid var(--primary-color-filter);
     border-bottom: 2vw solid transparent;
   }
   
-  .project-card:nth-child(1) {
+  .project-card:nth-child(2) {
 
     transform: translate(-100%, 50%) scale(.8);
   }
   
-  .project-card:nth-child(2) {
+  .project-card:nth-child(3) {
     left: -100%;
     z-index: 2;
     transform: translate(-50%, 50%) scale(.8);
   }
   
-  .project-card:nth-child(3) {
+  .project-card:nth-child(4) {
     transform: translate(-50%, 50%) scale(1);
   }
   
-  .project-card:nth-child(4) {
+  .project-card:nth-child(5) {
     transform: translate(0%, 50%) scale(.8);
   }
-  .project-card:nth-child(n+5) {
+  .project-card:nth-child(n+6) {
     transform: translate(50%, 50%) scale(.8);
   }
 
@@ -926,7 +925,11 @@ height: 105%;
     z-index: 4;
     width: 6vh;
     height: 6vh;
+    border-radius: 0px;
   }
+
+
+
   
   #project-button-next{
     background-color: var(--quaternary-color-filter);
@@ -937,7 +940,7 @@ height: 105%;
  .inner-project-button-next{
   transform: translateX(25%);
   border-top: 2vh solid transparent;
-  border-left: 2vh solid var(--secondary-color-filter);
+  border-left: 2vh solid var(--primary-color-filter);
   border-bottom: 2vh solid transparent;
 
  }
@@ -949,17 +952,11 @@ height: 105%;
   .inner-project-button-prev{
     transform: translateX(-25%);
     border-top: 2vh solid transparent;
-    border-right: 2vh solid var(--secondary-color-filter);
+    border-right: 2vh solid var(--primary-color-filter);
     border-bottom: 2vh solid transparent;
   }
   
   
-  
-  .project-card:nth-child(1) {
-    left: 0;
-    z-index: 1;
-    transform: translate(-100%, 50%) scale(1);
-  }
   
   .project-card:nth-child(2) {
     left: 0;
@@ -968,18 +965,24 @@ height: 105%;
   }
   
   .project-card:nth-child(3) {
+    left: 0;
+    z-index: 1;
+    transform: translate(-100%, 50%) scale(1);
+  }
+  
+  .project-card:nth-child(4) {
     left: 50%;
     z-index: 1;
     transform: translate(-50%, 50%) scale(1);
   }
   
-  .project-card:nth-child(4) {
+  .project-card:nth-child(5) {
     left: 100%;
     z-index: 1;
     transform: translate(0%, 50%) scale(1);
   }
   
-  .project-card:nth-child(n+5) {
+  .project-card:nth-child(n+6) {
     z-index: 1;
 
     transform: translate(50%, 50%) scale(1);
@@ -1006,9 +1009,15 @@ height: 105%;
     align-items: middle;
     font-size: 1em;
     border-top: 2px var(--quaternary-color) solid;
-  
+  }
+  .carousel-button{
+    top: 50%;
+    z-index: 4;
+    width: 7vh;
+    height: 7vh;
   }
   
+
 
 
   contact{
