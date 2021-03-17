@@ -11,6 +11,7 @@ const setBurgerMenu = () => {
   const preload = document.getElementsByClassName("preload")[0]
   const burgerMenu = document.querySelector(".burger-menu")
   const navItems = document.querySelector(".nav-items")
+  const navLinks = document.querySelectorAll('.nav-link')
   chute.addToAttributes(navItems, {
     "class": "nav-inactive"
   })
@@ -22,6 +23,11 @@ const setBurgerMenu = () => {
     navItems.classList.toggle("nav-inactive")
     burgerMenu.classList.toggle("toggle")
   })
+  navLinks.forEach(link => link.addEventListener('click', ()=> {
+    navItems.classList.toggle("nav-active")
+    navItems.classList.toggle("nav-inactive")
+    burgerMenu.classList.toggle("toggle")
+  }))
 }
 
 
