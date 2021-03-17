@@ -139,11 +139,13 @@ const buildCarousel = () => {
 
     function handleTouchEnd(e) {
       //calculate differences in each swipe direction
+      showCarouselButtons(2000)
       const diffX = e.changedTouches[0].screenX - startX;
       const diffY = e.changedTouches[0].screenY - startY;
       const ratioX = Math.abs(diffX / diffY);
       const ratioY = Math.abs(diffY / diffX);
       const absDiff = Math.abs(ratioX > ratioY ? diffX : diffY);
+      
 
       // Ignore minor touches.
       if (absDiff < 50) {
