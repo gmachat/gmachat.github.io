@@ -53,7 +53,7 @@ ul {
   background: var(--quaternary-color-filter);
   height: 100%;
   width: 100%;
-  z-index: 100;
+  z-index: 200;
   overflow-y: hidden;
   display: flex;
   justify-content: center;
@@ -127,6 +127,7 @@ nav {
   background-color: var(--primary-color);
   z-index: 100;
   width: 100%;
+  box-shadow:  5px 5px 5px var(--quaternary-color)
 }
 
 #nav-container {
@@ -287,7 +288,7 @@ about {
 projects{
   grid-row: 4;
   grid-column: 2;
-  height: 90vh;
+  height: 100vh;
   color: var(--quaternary-color);
   display: grid;
   grid-template-rows: min-content auto;
@@ -712,6 +713,7 @@ height: 105%;
     padding: .5em 0px;
     width: 100%;
     border-bottom: 2px var(--quaternary-color) solid;
+    box-shadow: none;
   }
 
   #nav-container {
