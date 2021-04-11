@@ -1021,6 +1021,8 @@ height: 105%;
     align-items: middle;
     font-size: 1em;
     border-top: 2px var(--quaternary-color) solid;
+    overflow: scroll;
+
   }
   .carousel-button{
     top: 50%;
