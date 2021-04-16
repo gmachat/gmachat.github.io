@@ -453,11 +453,11 @@ display: none;
 
 #project-card-1{
   background-image: linear-gradient(to bottom, var(--quaternary-color-filter), var(--quaternary-color-filter)),
-  url('resources/images/Brocial-Network1.png');
+  url('resources/images/Quick-Bit1.png');
 }
 #project-card-2{
   background-image: linear-gradient(to bottom, var(--quaternary-color-filter), var(--quaternary-color-filter)),
-    url('resources/images/prgramming_banner.jpg');
+    url('resources/images/Brocial-Network1.png');
 }
 #project-card-3{
   background-image: linear-gradient(to bottom, var(--quaternary-color-filter), var(--quaternary-color-filter)),
