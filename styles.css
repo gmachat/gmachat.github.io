@@ -469,7 +469,7 @@ display: none;
 }
 #project-card-5{
   background-image: linear-gradient(to bottom, var(--quaternary-color-filter), var(--quaternary-color-filter)),
-    url('resources/images/prgramming_banner.jpg');
+    url('resources/images/nutrify.png');
 }
 
 .project-card-body{
