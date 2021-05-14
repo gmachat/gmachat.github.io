@@ -453,7 +453,7 @@ display: none;
 
 #project-card-1{
   background-image: linear-gradient(to bottom, var(--quaternary-color-filter), var(--quaternary-color-filter)),
-  url('resources/images/Quick-Bit1.png');
+  url('resources/images/CodeRoom.png');
 }
 #project-card-2{
   background-image: linear-gradient(to bottom, var(--quaternary-color-filter), var(--quaternary-color-filter)),
@@ -465,11 +465,15 @@ display: none;
 }
 #project-card-4{
   background-image: linear-gradient(to bottom, var(--quaternary-color-filter), var(--quaternary-color-filter)),
-    url('resources/images/prgramming_banner.jpg');
+    url('resources/images/Quick-Bit1.png');
 }
 #project-card-5{
   background-image: linear-gradient(to bottom, var(--quaternary-color-filter), var(--quaternary-color-filter)),
     url('resources/images/nutrify.png');
+}
+#project-card-6{
+  background-image: linear-gradient(to bottom, var(--quaternary-color-filter), var(--quaternary-color-filter)),
+    url('resources/images/prgramming_banner.jpg');
 }
 
 .project-card-body{
