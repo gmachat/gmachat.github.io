@@ -26,7 +26,7 @@
           <p>I build accessible, scalable applications with React, TypeScript, and Next.js—from production UI systems to AI-powered full-stack products.</p>
           <div class="hero-actions">
             <a href="#experience" id="see-more">View experience</a>
-            <a href="./resources/Greg_Machat_Resume2026.pdf" class="hero-secondary" download>Download résumé</a>
+            <a href="./resources/Greg_Machat_Resume2026.pdf" class="hero-secondary" download>Download resume</a>
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@
         <ul class="nav-items">
           <li><a href="#about" class="nav-item nav-link">About</a></li>
           <li><a href="#experience" class="nav-item nav-link">Experience</a></li>
-          <li><a href="#project-header" class="nav-item nav-link">VegasIntel</a></li>
+          <li><a href="#project-header" class="nav-item nav-link">Projects</a></li>
           <li><a href="#contact" class="nav-item nav-link">Contact</a></li>
         </ul>
       </div>
@@ -179,28 +179,90 @@
 
       <section class="projects-section" aria-labelledby="project-header">
         <div id="project-header" class="section-heading">
-          <span>Independent product</span>
-          <h2>VegasIntel turns sports data into actionable intelligence.</h2>
+          <span>Selected work</span>
+          <h2>Building products—and the tools beneath them.</h2>
         </div>
 
-        <article class="featured-project">
-          <div class="featured-project-visual">
-            <div id="project-card-vegasintel" role="img" aria-label="VegasIntel sports analytics platform graphic">
-              <span class="vegasintel-wordmark">Vegas<span>Intel</span></span>
+        <div class="projects-stack">
+          <article class="featured-project">
+            <div class="featured-project-visual">
+              <div id="project-card-vegasintel" role="img" aria-label="VegasIntel sports analytics platform graphic">
+                <span class="vegasintel-wordmark">Vegas<span>Intel</span></span>
+              </div>
             </div>
+            <div class="featured-project-content">
+              <p class="project-kicker">Independent developer · 2025 – Present</p>
+              <h3>Full-stack sports analytics, designed and shipped independently.</h3>
+              <p>VegasIntel combines third-party sports data, market information, and AI-generated insights in responsive dashboards built for fast decision-making.</p>
+              <ul>
+                <li>Next.js, React, TypeScript, Tailwind CSS, PostgreSQL, and Prisma</li>
+                <li>Authentication, user access controls, and automated data ingestion</li>
+                <li>Production deployment and operations on Vercel</li>
+              </ul>
+              <a href="https://vegasintel.vip" target="_blank" rel="noopener noreferrer" class="project-link">Visit vegasintel.vip <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="featured-project chute-project">
+            <div class="featured-project-visual chute-project-visual">
+              <div class="chute-framework-card">
+                <div class="chute-framework-heading">
+                  <span class="chute-mark">C</span>
+                  <span class="chute-wordmark">Chute.js</span>
+                  <span class="chute-version">v1.0.0</span>
+                </div>
+                <div class="chute-flow" aria-label="Chute state flow: action to store to selector to render">
+                  <span>action</span><i>→</i><span>store</span><i>→</i><span>selector</span><i>→</i><span>render</span>
+                </div>
+                <div class="chute-live-state" aria-live="polite">
+                  <span>Live portfolio state</span>
+                  <code data-chute-menu-state>menuOpen: false</code>
+                  <code data-chute-card-state>activeCard: null</code>
+                </div>
+              </div>
+            </div>
+            <div class="featured-project-content">
+              <p class="project-kicker">Custom framework · This site runs on it</p>
+              <h3>A homemade React-style state layer in about 120 lines.</h3>
+              <p>Chute.js is a zero-dependency reactive state-management framework created for this portfolio. Its immutable store drives the navigation and card modals you interact with across the page.</p>
+              <ul>
+                <li>Named actions and predictable immutable state updates</li>
+                <li>Selector-driven components that render only when their state changes</li>
+                <li>Microtask-batched updates, subscriptions, and lifecycle cleanup</li>
+              </ul>
+              <a href="https://github.com/gmachat/gmachat.github.io/blob/master/chutejs.js" target="_blank" rel="noopener noreferrer" class="project-link">View Chute.js source <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+
+        <div class="earlier-work">
+          <div class="earlier-work-heading">
+            <span>Earlier work</span>
+            <h3>Projects that shaped the foundation.</h3>
           </div>
-          <div class="featured-project-content">
-            <p class="project-kicker">Independent developer · 2025 – Present</p>
-            <h3>Full-stack sports analytics, designed and shipped independently.</h3>
-            <p>VegasIntel combines third-party sports data, market information, and AI-generated insights in responsive dashboards built for fast decision-making.</p>
-            <ul>
-              <li>Next.js, React, TypeScript, Tailwind CSS, PostgreSQL, and Prisma</li>
-              <li>Authentication, user access controls, and automated data ingestion</li>
-              <li>Production deployment and operations on Vercel</li>
-            </ul>
-            <a href="https://vegasintel.vip" target="_blank" rel="noopener noreferrer" class="project-link">Visit vegasintel.vip <span aria-hidden="true">↗</span></a>
+
+          <div class="earlier-work-grid">
+            <article class="compact-project-card">
+              <div class="compact-project-image quickbit-card-art" role="img" aria-label="Quick Bit video chat interface"></div>
+              <div class="compact-project-content">
+                <p class="project-kicker">React · Node.js · Agora</p>
+                <h3>Quick Bit</h3>
+                <p>A rapid video-chat experience where users can create or join channels in seconds, powered by Agora's real-time communications API.</p>
+                <a href="https://github.com/gmachat/quick-bit" target="_blank" rel="noopener noreferrer" class="compact-project-link">View source <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+
+            <article class="compact-project-card">
+              <div class="compact-project-image coderoom-card-art" role="img" aria-label="Code Room collaborative editor interface"></div>
+              <div class="compact-project-content">
+                <p class="project-kicker">Django · React · Firebase</p>
+                <h3>Code Room</h3>
+                <p>A collaborative coding platform combining a real-time IDE, code execution, video chat, and instructor-managed programming challenges.</p>
+                <span class="compact-project-note">Code Platoon capstone project</span>
+              </div>
+            </article>
           </div>
-        </article>
+        </div>
       </section>
     </main>
 
@@ -213,7 +275,7 @@
         </div>
         <ul class="contacts" aria-label="Social links">
           <li class="contact-item">
-            <a href="./resources/Greg_Machat_Resume2026.pdf" class="resume-link" download>Download résumé</a>
+            <a href="./resources/Greg_Machat_Resume2026.pdf" class="resume-link" download>Download resume</a>
           </li>
           <li class="contact-item">
             <a href="https://www.linkedin.com/in/gregory-machat/" target="_blank" rel="noopener noreferrer" class="contact-link"><img src="./resources/icons/linkedin-icon.svg" alt="LinkedIn" class="contact-icon"></a>
