@@ -856,7 +856,7 @@ nav {
 }
 
 .connectify-card-art {
-  background-image: linear-gradient(rgba(7, 61, 71, .08), rgba(7, 61, 71, .08)), url("resources/images/Connectify.png");
+  background-image: linear-gradient(rgba(7, 61, 71, .05), rgba(7, 61, 71, .05)), url("resources/images/Connectify.png?v=2");
 }
 
 .coderoom-card-art {
