@@ -5,10 +5,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Greg Machat — full stack software engineer, Army veteran, and builder of thoughtful digital products.">
   <script src="chutejs.js"></script>
   <script src="app.js" async defer></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel='stylesheet' href="styles.css">
   <link rel="icon" href="./resources/images/logo-transparent.png">
@@ -20,18 +21,13 @@
     <div id="portrait-frame">
       <div id="portait-photo">
         <div id="welcome-box">
-          <div>
-            Greg Machat
+          <div class="hero-eyebrow">Full stack software engineer</div>
+          <h1>Greg Machat</h1>
+          <p>I build dependable, data-rich products that turn complex problems into clear experiences.</p>
+          <div class="hero-actions">
+            <a href="#project-header" id="see-more">View my work</a>
+            <a href="#contact" class="hero-secondary">Get in touch</a>
           </div>
-          <div>
-            Software Engineer
-          </div>
-          <a href="#nav-el">
-            <div id="see-more">
-              See More
-
-            </div>
-          </a>
         </div>
       </div>
       <div id="nav-el"></div>
@@ -48,7 +44,7 @@
           <div class="line line3"></div>
         </div>
         <ul class="nav-items">
-          <a href="#nav-el" class="nav-item nav-link">
+          <a href="#about" class="nav-item nav-link">
             <li>About Me</li>
           </a>
           <a href="#project-header" class="nav-item nav-link">
@@ -61,6 +57,11 @@
       </div>
     </nav>
     <about id="about">
+      <div class="section-heading about-heading">
+        <span>About me</span>
+        <h2>Engineering with purpose.</h2>
+        <p>Technical craft, practical leadership, and a bias toward building useful things.</p>
+      </div>
       <div class="card">
         <h3 class="card-title"> Full Stack Software Engineer</h3>
         <div class="card-photo-frame">
@@ -78,13 +79,16 @@
         <div class="card-text-box">
           <div>
             Serving as a combat medic with the 82nd Airborne has provided unique skills that transfer directly
-            to the world of technology. Leadership, adaptability, and teamwork are all skills that are critical to success of a team both in an out of the military.</div>
+            to the world of technology. Leadership, adaptability, and teamwork are all skills that are critical to a team's success both in and out of the military.</div>
         </div>
       </div>
     </about>
     <projects>
       <div id="project-header">
-        <div class="section-title">Projects</div>
+        <div class="section-heading">
+          <span>Selected work</span>
+          <h2>Projects built to solve real problems.</h2>
+        </div>
       </div>
       <div class="wrapper">
         <div class="carousel" id="project-carousel">
@@ -97,19 +101,19 @@
               <div class="card-photo project-photo" id="project-card-4"></div>
             </div>
             <div class="project-card-body">A live video chat application in which users can instantly host and join different channels in seconds!  This app was built using a React front end with a Node.js powered backend.  It utilizes the Agora.io API to allow blazing fast HD video chat.
-              <div>The Site is live <a href="https://quick-bit.herokuapp.com/"  target="_blank" class="external-link">here</a></div>
+              <div>The site is live <a href="https://quick-bit.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="external-link">here</a></div>
             </div>
           </div>
           
 
           <div class="project-card">
-            <div class="project-card-title">Nutrify</div>
+            <div class="project-card-title">VegasIntel</div>
             <div class="project-photo-frame">
-              <div class="card-photo project-photo" id="project-card-5"></div>
+              <div class="card-photo project-photo" id="project-card-vegasintel" role="img" aria-label="VegasIntel sports intelligence dashboard graphic">
+                <span class="vegasintel-wordmark">Vegas<span>Intel</span></span>
+              </div>
             </div>
-            <div class="project-card-body">Nutrify is a unique recipe creation and sharing experience that allows users to create full nutritional profiles of all of their favorite recipes.  This project was build using Django and React, and was styled with handmade CSS. It allows users to CRUD recipes and pulls nutritional information from the <a href="https://developer.edamam.com/" target="_blank" class="external-link" >Edamame</a> recipe nutrition api.
-            <div>The Site is live <a href="https://nutrify.herokuapp.com/"  target="_blank" class="external-link">here</a></div>
-          </div>
+            <div class="project-card-body">VegasIntel is an AI-powered sports intelligence platform that brings live odds, market movement, injuries, trends, and model-driven analysis into one streamlined dashboard. Built with Next.js, PostgreSQL, and Prisma, it turns complex sports data into clear, actionable insights.</div>
           </div>
 
           <div class="project-card">
@@ -117,37 +121,18 @@
             <div class="project-photo-frame">
               <div class="card-photo project-photo" id="project-card-1"></div>
             </div>
-            <div class="project-card-body">A final group project for my <a href="https://www.codeplatoon.org/"  target="_blank" class="external-link">Code Platoon</a> cohort, Code Room is a lightweight collabrative code editing platform for use by instructors, students, and anyone who wants to work with others to solve coding challenges.  Instructors simply write a challenge and send the link to anyone they wish to complete it.  The challenge page from this link will work out of the box, with a real-time collabrative IDE, fully functioning compiler, as well as video chat.  All challenges submitted will be viewable by the instructor.  This project was built using a Django back end, React front end, and leverages a Firebase real time database for real time collabration.  
+            <div class="project-card-body">A final group project for my <a href="https://www.codeplatoon.org/" target="_blank" class="external-link">Code Platoon</a> cohort, Code Room is a lightweight collaborative coding platform for instructors, students, and anyone who wants to solve challenges with others. Instructors write a challenge and share a link to a page with a real-time collaborative IDE, functioning compiler, and video chat. Submissions remain available to the instructor. The project uses a Django backend, React frontend, and Firebase real-time database.
               <div>The site is live <a href="https://coderoom.us"  target="_blank" class="external-link">here</a>  </div>
             </div>
           </div>
 
 
           <div class="project-card">
-            <div class="project-card-title first">Brocial Network</div>
-            <div class="project-photo-frame">
-              <div class="card-photo project-photo" id="project-card-2"></div>
-            </div>
-            <div class="project-card-body">A goofy, satirical, social networking site inspired by the early days of Facebook.  It was built using Node.js, Express.js, and MongoDB using Pug for server side rendering and vanilla JavaScript on the front end.  It was my first major web application using JavaScript.  The site allows you to CRUD user posts, photos, and comments, as well as search users via the search bar. 
-            <div>The Site is live <a href="https://brocial-network.herokuapp.com/"  target="_blank" class="external-link">here</a></div>
-            </div>
-          </div>
-
-    
-
-          <div class="project-card">
-            <div class="project-card-title">Coming Soon!</div>
-            <div class="project-photo-frame">
-              <div class="card-photo project-photo" id="project-card-3"></div>
-            </div>
-            <div class="project-card-body">This project is in progress! Stay Tuned!</div>
-          </div>
-          <div class="project-card">
             <div class="project-card-title">Coming Soon!</div>
             <div class="project-photo-frame">
               <div class="card-photo project-photo" id="project-card-6"></div>
             </div>
-            <div class="project-card-body">This project is in progress! Stay Tuned!</div>
+            <div class="project-card-body">A new product is currently in development. More details are coming soon.</div>
           </div>
 
 
@@ -166,7 +151,7 @@
         <div id="contact-items">
           <ul class="contacts">
             <li class="contact-item">
-              <div id="contact-title"><img class="personal-icon" id="alt-icon" src="./resources/images/logo-alt-transparent.png" alt="Greg Machat Personal Icon Alternate Colors"></div>
+              <div id="contact-title"><img class="personal-icon" id="alt-icon" src="./resources/images/logo-alt-transparent.png" alt="Greg Machat Personal Icon Alternate Colors"><span>Let's build something useful.</span></div>
             </li>
             <li class="contact-item">
               <a href="https://www.linkedin.com/in/gregory-machat/" target="_blank" class="contact-link"><img src="./resources/icons/linkedin-icon.svg" alt="linkedin icon" class="contact-icon">

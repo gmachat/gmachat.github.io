@@ -125,7 +125,7 @@ const buildCarousel = () => {
     carousel.appendChild(projectCards[0]);
     projectCards = document.querySelectorAll('.project-card');
     currentPage += 1
-    if (currentPage == 7) currentPage = 1
+    if (currentPage > totalPages) currentPage = 1
     cardCount.innerHTML = `${currentPage}/${totalPages}`
 
   };
@@ -174,23 +174,11 @@ const buildCarousel = () => {
 
 
 
-//responds to user scroll.  If they scroll -X past nav bar, it sticks to the top (after portrait)
-//also shows card cound when user scrolls to projects, this shows the user there are multiple
+// Shows the card count when the projects section enters the viewport.
 {
-  const navBar = document.querySelector('nav');
-  const about = document.querySelector('about')
   const cardCount = document.querySelector('#card-count')
 
   window.addEventListener('scroll', () => {
-    //fix nav to top
-    if (navBar.getBoundingClientRect().top <= 0) {
-      navBar.style.position = 'fixed'
-      navBar.style.top = '0px'
-    }
-    if (navBar.getBoundingClientRect().bottom <= about.getBoundingClientRect().top) {
-      navBar.style.position = 'relative'
-    }
-    //show card count when user scrolls down
     if (carousel.getBoundingClientRect().top <= 200) {
       cardCount.setAttribute('class', 'card-count-active')
       window.setTimeout(() => {
