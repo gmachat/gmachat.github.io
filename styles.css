@@ -399,20 +399,8 @@ nav {
   border-bottom: 1px solid var(--line);
 }
 
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  top: 54px;
-  left: -1px;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent);
-  transform: translateX(-50%);
-}
-
 .timeline-meta {
-  padding-left: 20px;
+  padding-left: 0;
 }
 
 .timeline-company {
@@ -614,18 +602,14 @@ nav {
   transform: perspective(260px) rotateX(58deg) scale(1.7) translateY(18%);
 }
 
-.vegasintel-wordmark {
+.vegasintel-logo {
   position: relative;
   z-index: 1;
-  color: white;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(2.7rem, 5vw, 5rem);
-  font-weight: 700;
-  letter-spacing: -.05em;
-  text-shadow: 0 5px 24px rgba(0, 0, 0, .5);
+  width: min(72%, 340px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, .48));
 }
-
-.vegasintel-wordmark span { color: var(--accent); }
 
 .featured-project-content {
   display: flex;
@@ -824,7 +808,7 @@ nav {
 
 .earlier-work-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -861,6 +845,10 @@ nav {
 
 .coderoom-card-art {
   background-image: linear-gradient(rgba(7, 61, 71, .16), rgba(7, 61, 71, .16)), url("resources/images/CodeRoom.png");
+}
+
+.nutrify-card-art {
+  background-image: linear-gradient(rgba(7, 61, 71, .06), rgba(7, 61, 71, .06)), url("resources/images/nutrify.png?v=1");
 }
 
 .compact-project-content {
