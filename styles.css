@@ -500,10 +500,76 @@ nav {
 
 #project-header { margin-bottom: 52px; }
 #project-header > span { color: #ff9a66; }
+#project-header > p { color: rgba(255, 255, 255, .68); }
 
 .projects-stack {
   display: grid;
   gap: 32px;
+}
+
+.flagship-project {
+  min-height: 650px;
+  grid-template-columns: 1.12fr .88fr;
+  border-color: rgba(230, 106, 44, .42);
+  background: linear-gradient(145deg, #0c3f49, #082a32);
+  box-shadow: 0 36px 100px rgba(0, 0, 0, .3), 0 0 0 1px rgba(230, 106, 44, .08);
+}
+
+.flagship-project .featured-project-visual {
+  padding: clamp(38px, 5vw, 64px);
+  background: radial-gradient(circle at 35% 20%, rgba(230, 106, 44, .28), transparent 38%), linear-gradient(145deg, #0d5966, #083943);
+}
+
+.flagship-project #project-card-vegasintel {
+  transform: perspective(1000px) rotateY(2deg);
+  transition: transform .35s ease;
+}
+
+.flagship-project:hover #project-card-vegasintel {
+  transform: perspective(1000px) rotateY(0deg) translateY(-4px);
+}
+
+.flagship-label {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 22px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 154, 102, .3);
+  border-radius: 999px;
+  background: rgba(230, 106, 44, .1);
+  color: #ffb18a;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.supporting-project-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  margin-top: 66px;
+  padding-top: 54px;
+  border-top: 1px solid rgba(255, 255, 255, .12);
+}
+
+.supporting-project-heading > span {
+  color: #78eeda;
+  font-size: .74rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.supporting-project-heading h3 {
+  max-width: 560px;
+  font-size: clamp(1.7rem, 3vw, 2.7rem);
+  line-height: 1.08;
+  letter-spacing: -.045em;
+  text-align: right;
 }
 
 .featured-project {
@@ -929,7 +995,8 @@ nav {
   .skills-panel { grid-template-columns: 1fr; gap: 30px; }
   .timeline-item { grid-template-columns: 1fr; gap: 22px; }
 
-  .featured-project { grid-template-columns: 1fr; }
+  .featured-project,
+  .flagship-project { grid-template-columns: 1fr; }
   .featured-project-visual { min-height: 390px; }
   .earlier-work-grid { grid-template-columns: 1fr; }
 }
@@ -1040,6 +1107,8 @@ nav {
   .featured-project-visual { min-height: 300px; padding: 20px; }
   .featured-project-content { padding: 30px 24px 36px; }
   .chute-flow { flex-wrap: wrap; justify-content: flex-start; }
+  .supporting-project-heading { align-items: flex-start; flex-direction: column; }
+  .supporting-project-heading h3 { text-align: left; }
   .earlier-work { margin-top: 64px; padding-top: 40px; }
   .earlier-work-heading { align-items: flex-start; flex-direction: column; }
   .earlier-work-heading h3 { text-align: left; }
