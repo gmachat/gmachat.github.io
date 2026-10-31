@@ -5,175 +5,225 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Greg Machat — full stack software engineer, Army veteran, and builder of thoughtful digital products.">
+  <meta name="description" content="Greg Machat is a front-end software engineer and U.S. Army veteran building accessible, scalable applications with React, TypeScript, and Next.js.">
   <script src="chutejs.js"></script>
   <script src="app.js" async defer></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel='stylesheet' href="styles.css">
+  <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="./resources/images/logo-transparent.png">
-  <title>Greg Machat</title>
+  <title>Greg Machat | Front-End Software Engineer</title>
 </head>
 
 <body id="root" class="preload">
   <div id="master-grid">
-    <div id="portrait-frame">
+    <header id="portrait-frame">
       <div id="portait-photo">
         <div id="welcome-box">
-          <div class="hero-eyebrow">Full stack software engineer</div>
+          <div class="hero-eyebrow">Front-end software engineer · U.S. Army veteran</div>
           <h1>Greg Machat</h1>
-          <p>I build dependable, data-rich products that turn complex problems into clear experiences.</p>
+          <p>I build accessible, scalable applications with React, TypeScript, and Next.js—from production UI systems to AI-powered full-stack products.</p>
           <div class="hero-actions">
-            <a href="#project-header" id="see-more">View my work</a>
-            <a href="#contact" class="hero-secondary">Get in touch</a>
+            <a href="#experience" id="see-more">View experience</a>
+            <a href="./resources/Greg_Machat_Resume2026.pdf" class="hero-secondary" download>Download résumé</a>
           </div>
         </div>
       </div>
       <div id="nav-el"></div>
-    </div>
-    <nav>
-      <div id="nav-container">
-        <div class="nav-item" id="nav-icon">
-          <div id="nav-logo"><img class="personal-icon" src="./resources/images/logo-transparent.png" alt="Greg Machat Personal Icon"></div>
-        </div>
+    </header>
 
-        <div class="burger-menu">
-          <div class="line line1"></div>
-          <div class="line line2"></div>
-          <div class="line line3"></div>
-        </div>
+    <nav aria-label="Primary navigation">
+      <div id="nav-container">
+        <a href="#portrait-frame" class="nav-item" id="nav-icon" aria-label="Back to top">
+          <div id="nav-logo"><img class="personal-icon" src="./resources/images/logo-transparent.png" alt="Greg Machat logo"></div>
+        </a>
+
+        <button class="burger-menu" type="button" aria-label="Toggle navigation" aria-expanded="false">
+          <span class="line line1"></span>
+          <span class="line line2"></span>
+          <span class="line line3"></span>
+        </button>
+
         <ul class="nav-items">
-          <a href="#about" class="nav-item nav-link">
-            <li>About Me</li>
-          </a>
-          <a href="#project-header" class="nav-item nav-link">
-            <li>Projects</li>
-          </a>
-          <a href="#contact" class="nav-item nav-link">
-            <li id="contact-info">Contact Me</li>
-          </a>
+          <li><a href="#about" class="nav-item nav-link">About</a></li>
+          <li><a href="#experience" class="nav-item nav-link">Experience</a></li>
+          <li><a href="#project-header" class="nav-item nav-link">VegasIntel</a></li>
+          <li><a href="#contact" class="nav-item nav-link">Contact</a></li>
         </ul>
       </div>
     </nav>
-    <about id="about">
-      <div class="section-heading about-heading">
-        <span>About me</span>
-        <h2>Engineering with purpose.</h2>
-        <p>Technical craft, practical leadership, and a bias toward building useful things.</p>
-      </div>
-      <div class="card">
-        <h3 class="card-title"> Full Stack Software Engineer</h3>
-        <div class="card-photo-frame">
-          <div class="card-photo about-card-photo" id="full-stack-photo"></div>
+
+    <main class="page-content">
+      <section id="about" class="about-section">
+        <div class="section-heading about-heading">
+          <span>About me</span>
+          <h2>Production-minded engineering with a leadership foundation.</h2>
+          <p>I specialize in owning user-facing features from concept through production, pairing thoughtful UI engineering with the calm, accountable leadership I developed as an Army combat medic sergeant.</p>
         </div>
-        <div class="card-text-box">
-          <div>Experienced in fullstack development with Python and Django, JavaScript and React, and PostgreSQL, as well as HTML and CSS. Also familiar with MongoDB, Node.js, and Express.js.</div>
+
+        <div class="about-grid">
+          <article class="card">
+            <h3 class="card-title">Front-End Engineering</h3>
+            <div class="card-photo-frame">
+              <div class="card-photo" id="full-stack-photo" role="img" aria-label="Software development workspace"></div>
+            </div>
+            <div class="card-text-box">
+              <p>Experienced in building reusable React interfaces, accessible component systems, responsive workflows, and AI-enabled product features inside large-scale production applications.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3 class="card-title">Army Leadership</h3>
+            <div class="card-photo-frame">
+              <div class="card-photo" id="army-vet-photo" role="img" aria-label="Greg Machat during Army service"></div>
+            </div>
+            <div class="card-text-box">
+              <p>Led and mentored small medical teams in high-pressure operational settings, including deployment to Afghanistan, and built a Python process improvement that eliminated thousands of hours of manual data entry.</p>
+            </div>
+          </article>
         </div>
-      </div>
-      <div class="card">
-        <h3 class="card-title">Army Veteran</h3>
-        <div class="card-photo-frame">
-          <div class="card-photo about-card-photo" id="army-vet-photo"></div>
-        </div>
-        <div class="card-text-box">
+
+        <div class="skills-panel" aria-labelledby="skills-title">
           <div>
-            Serving as a combat medic with the 82nd Airborne has provided unique skills that transfer directly
-            to the world of technology. Leadership, adaptability, and teamwork are all skills that are critical to a team's success both in and out of the military.</div>
-        </div>
-      </div>
-    </about>
-    <projects>
-      <div id="project-header">
-        <div class="section-heading">
-          <span>Selected work</span>
-          <h2>Projects built to solve real problems.</h2>
-        </div>
-      </div>
-      <div class="wrapper">
-        <div class="carousel" id="project-carousel">
-          <div id="card-count" class="card-count-inactive">Test</div>
-
-
-          <div class="project-card">
-            <div class="project-card-title">Quick Bit</div>
-            <div class="project-photo-frame">
-              <div class="card-photo project-photo" id="project-card-4"></div>
-            </div>
-            <div class="project-card-body">A live video chat application in which users can instantly host and join different channels in seconds!  This app was built using a React front end with a Node.js powered backend.  It utilizes the Agora.io API to allow blazing fast HD video chat.
-              <div>The site is live <a href="https://quick-bit.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="external-link">here</a></div>
-            </div>
+            <span class="skills-label">Current toolkit</span>
+            <h3 id="skills-title">Skills built for modern product teams.</h3>
           </div>
-          
-
-          <div class="project-card">
-            <div class="project-card-title">VegasIntel</div>
-            <div class="project-photo-frame">
-              <div class="card-photo project-photo" id="project-card-vegasintel" role="img" aria-label="VegasIntel sports intelligence dashboard graphic">
-                <span class="vegasintel-wordmark">Vegas<span>Intel</span></span>
-              </div>
-            </div>
-            <div class="project-card-body">VegasIntel is an AI-powered sports intelligence platform that brings live odds, market movement, injuries, trends, and model-driven analysis into one streamlined dashboard. Built with Next.js, PostgreSQL, and Prisma, it turns complex sports data into clear, actionable insights.</div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-card-title">Code Room</div>
-            <div class="project-photo-frame">
-              <div class="card-photo project-photo" id="project-card-1"></div>
-            </div>
-            <div class="project-card-body">A final group project for my <a href="https://www.codeplatoon.org/" target="_blank" class="external-link">Code Platoon</a> cohort, Code Room is a lightweight collaborative coding platform for instructors, students, and anyone who wants to solve challenges with others. Instructors write a challenge and share a link to a page with a real-time collaborative IDE, functioning compiler, and video chat. Submissions remain available to the instructor. The project uses a Django backend, React frontend, and Firebase real-time database.
-              <div>The site is live <a href="https://coderoom.us"  target="_blank" class="external-link">here</a>  </div>
-            </div>
-          </div>
-
-
-          <div class="project-card">
-            <div class="project-card-title">Coming Soon!</div>
-            <div class="project-photo-frame">
-              <div class="card-photo project-photo" id="project-card-6"></div>
-            </div>
-            <div class="project-card-body">A new product is currently in development. More details are coming soon.</div>
-          </div>
-
-
-
-        </div>
-        <div id="project-button-next" class="carousel-button-hidden carousel-button-class">
-          <div class="inner-project-button-next"></div>
-        </div>
-        <div id="project-button-prev" class="carousel-button-hidden carousel-button-class">
-          <div class="inner-project-button-prev"></div>
-        </div>
-      </div>
-    </projects>
-    <contact id="contact">
-      <div id="contact-bar">
-        <div id="contact-items">
-          <ul class="contacts">
-            <li class="contact-item">
-              <div id="contact-title"><img class="personal-icon" id="alt-icon" src="./resources/images/logo-alt-transparent.png" alt="Greg Machat Personal Icon Alternate Colors"><span>Let's build something useful.</span></div>
-            </li>
-            <li class="contact-item">
-              <a href="https://www.linkedin.com/in/gregory-machat/" target="_blank" class="contact-link"><img src="./resources/icons/linkedin-icon.svg" alt="linkedin icon" class="contact-icon">
-              </a>
-            </li>
-            <li class="contact-item">
-              <a href="https://www.facebook.com/greg.machat" target="_blank" class="contact-link"><img src="./resources/icons/facebook-icon.svg" alt="facebook icon" class="contact-icon">
-              </a>
-            </li>
-            <li class="contact-item">
-              <a href="https://twitter.com/machatgreg" target="_blank" class="contact-link"><img src="./resources/icons/twitter-icon.svg" alt="twitter icon" class="contact-icon">
-              </a>
-            </li>
-            <li class="contact-item">
-              <a href="https://github.com/gmachat" target="_blank" class="contact-link"><img src="./resources/icons/github-icon.svg" alt="github icon" class="contact-icon">
-              </a>
-            </li>
+          <ul class="skills-list">
+            <li>JavaScript / TypeScript</li>
+            <li>React / Redux</li>
+            <li>Next.js / Tailwind CSS</li>
+            <li>HTML / CSS</li>
+            <li>Accessible UI components</li>
+            <li>API and AI integration</li>
           </ul>
         </div>
-      </div>
-    </contact>
+      </section>
 
+      <section id="experience" class="experience-section">
+        <div class="section-heading">
+          <span>Experience</span>
+          <h2>Shipping reliable interfaces at production scale.</h2>
+          <p>A progression from intern to primary front-end engineer, with ownership across customer care, interviewing, accessibility, and internationalization.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <p class="timeline-company">Yello.co</p>
+              <h3>Software Engineer II</h3>
+              <p>December 2022 – October 2026</p>
+              <p>Chicago, Illinois</p>
+            </div>
+            <ul>
+              <li>Served as the primary front-end engineer on the Customer Care team, resolving urgent production issues and shipping reliable fixes under tight deadlines.</li>
+              <li>Built user-facing AI features and reusable React interfaces within a large-scale production application.</li>
+              <li>Owned front-end delivery across multiple teams in partnership with engineering, QA, and product stakeholders.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <p class="timeline-company">Yello.co</p>
+              <h3>Software Engineer I</h3>
+              <p>September 2021 – December 2022</p>
+              <p>Chicago, Illinois</p>
+            </div>
+            <ul>
+              <li>Led front-end development of a video interviewing platform integrating Google Meet, Zoom, Microsoft Teams, and proprietary video.</li>
+              <li>Built scheduling interfaces supporting thousands of interviews across clients and time zones.</li>
+              <li>Created reusable, accessible UI components supporting consistent, WCAG-aligned experiences.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <p class="timeline-company">Yello.co</p>
+              <h3>Software Engineer Intern</h3>
+              <p>June 2021 – September 2021</p>
+              <p>Chicago, Illinois</p>
+            </div>
+            <ul>
+              <li>Improved UI accessibility and implemented dynamic translations for international users.</li>
+              <li>Shipped user-facing enhancements through iterative Agile development.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item timeline-item-army">
+            <div class="timeline-meta">
+              <p class="timeline-company">United States Army</p>
+              <h3>Combat Medic Sergeant</h3>
+              <p>August 2017 – June 2021</p>
+              <p>Fort Bragg, North Carolina</p>
+            </div>
+            <ul>
+              <li>Led and mentored medical teams in demanding operational environments, including deployment to Afghanistan.</li>
+              <li>Applied Python to eliminate a large manual data-entry burden and improve an internal process.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="education-strip">
+          <div>
+            <span>Engineering training</span>
+            <h3>Code Platoon</h3>
+            <p>Full Stack Software Engineering Bootcamp · 2021</p>
+          </div>
+          <div>
+            <span>Education</span>
+            <h3>Rowan University</h3>
+            <p>B.A., Health and Physical Education · 2016</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="projects-section" aria-labelledby="project-header">
+        <div id="project-header" class="section-heading">
+          <span>Independent product</span>
+          <h2>VegasIntel turns sports data into actionable intelligence.</h2>
+        </div>
+
+        <article class="featured-project">
+          <div class="featured-project-visual">
+            <div id="project-card-vegasintel" role="img" aria-label="VegasIntel sports analytics platform graphic">
+              <span class="vegasintel-wordmark">Vegas<span>Intel</span></span>
+            </div>
+          </div>
+          <div class="featured-project-content">
+            <p class="project-kicker">Independent developer · 2025 – Present</p>
+            <h3>Full-stack sports analytics, designed and shipped independently.</h3>
+            <p>VegasIntel combines third-party sports data, market information, and AI-generated insights in responsive dashboards built for fast decision-making.</p>
+            <ul>
+              <li>Next.js, React, TypeScript, Tailwind CSS, PostgreSQL, and Prisma</li>
+              <li>Authentication, user access controls, and automated data ingestion</li>
+              <li>Production deployment and operations on Vercel</li>
+            </ul>
+            <a href="https://vegasintel.vip" target="_blank" rel="noopener noreferrer" class="project-link">Visit vegasintel.vip <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div id="contact-bar">
+        <div class="contact-copy">
+          <span>Let’s work together</span>
+          <h2>Building a thoughtful product team?</h2>
+          <a href="mailto:machatgre@gmail.com">machatgre@gmail.com</a>
+        </div>
+        <ul class="contacts" aria-label="Social links">
+          <li class="contact-item">
+            <a href="./resources/Greg_Machat_Resume2026.pdf" class="resume-link" download>Download résumé</a>
+          </li>
+          <li class="contact-item">
+            <a href="https://www.linkedin.com/in/gregory-machat/" target="_blank" rel="noopener noreferrer" class="contact-link"><img src="./resources/icons/linkedin-icon.svg" alt="LinkedIn" class="contact-icon"></a>
+          </li>
+          <li class="contact-item">
+            <a href="https://github.com/gmachat" target="_blank" rel="noopener noreferrer" class="contact-link"><img src="./resources/icons/github-icon.svg" alt="GitHub" class="contact-icon"></a>
+          </li>
+        </ul>
+      </div>
+    </footer>
   </div>
 </body>
 

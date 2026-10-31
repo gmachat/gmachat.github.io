@@ -1,198 +1,55 @@
-let chute = new chutejs
-
-
-//GLOBALS
-const carousel = document.querySelector('#project-carousel');
-
-
-
-//set up burger menu
 const setBurgerMenu = () => {
-  const preload = document.getElementsByClassName("preload")[0]
-  const burgerMenu = document.querySelector(".burger-menu")
-  const navItems = document.querySelector(".nav-items")
+  const preload = document.querySelector('.preload')
+  const burgerMenu = document.querySelector('.burger-menu')
+  const navItems = document.querySelector('.nav-items')
   const navLinks = document.querySelectorAll('.nav-link')
-  chute.addToAttributes(navItems, {
-    "class": "nav-inactive"
-  })
-  chute.removeFromAttribute(preload, {
-    "class": "preload"
-  })
-  burgerMenu.addEventListener("click", () => {
-    navItems.classList.toggle("nav-active")
-    navItems.classList.toggle("nav-inactive")
-    burgerMenu.classList.toggle("toggle")
-  })
-  navLinks.forEach(link => link.addEventListener('click', ()=> {
-    navItems.classList.toggle("nav-active")
-    navItems.classList.toggle("nav-inactive")
-    burgerMenu.classList.toggle("toggle")
-  }))
-}
 
+  preload?.classList.remove('preload')
+  navItems.classList.add('nav-inactive')
 
-
-
-//Handle when a card is clicked to bring oup modal
-const handleCardClick = (event, el) => {
-  const modal = chute.createFullElement("div", {
-    "class": "modal",
-    "id": "modal"
-  })
-  modal.addEventListener("click", (event) => {
-    modal.remove()
-  })
-  document.getElementById("root").prepend(modal)
-  const targetCard = el.cloneNode(true)
-  chute.addToAttributes(targetCard, {
-    "class": "card-clicked"
-  })
-  chute.preventBubbling("click", targetCard)
-  modal.append(targetCard)
-}
-
-
-
-
-
-//Select all cards form ths about me section and add the click event listener
-const aboutCards = Array.from(document.getElementsByClassName("card"))
-aboutCards.forEach(el => {
-  el.addEventListener('click', (event) => handleCardClick(event, el))
-})
-
-
-
-//Set up carousel buttons when screen width is below 1024px
-let arrowTimer
-const showCarouselButtons = (time) => {
-  if (arrowTimer) {
-    clearTimeout(arrowTimer)
+  const setMenuOpen = (isOpen) => {
+    navItems.classList.toggle('nav-active', isOpen)
+    navItems.classList.toggle('nav-inactive', !isOpen)
+    burgerMenu.classList.toggle('toggle', isOpen)
+    burgerMenu.setAttribute('aria-expanded', String(isOpen))
   }
 
-  let buttons = document.querySelectorAll(".carousel-button-class")
+  burgerMenu.addEventListener('click', () => {
+    setMenuOpen(!navItems.classList.contains('nav-active'))
+  })
 
-  let cardCount = document.getElementById("card-count")
-  cardCount.setAttribute('class', 'card-count-active')
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => setMenuOpen(false))
+  })
+}
 
-  //just takes the first button as they all should have same classes at this point
-  if (buttons[0].className.includes('carousel-button-hidden')) {
-    buttons.forEach(btn => {
-      chute.setNewAttributes(btn, {
-        "class": "carousel-button carousel-button-class"
-      })
-      btn.addEventListener("click", () => showCarouselButtons(2000))
+const setAboutCardModals = () => {
+  document.querySelectorAll('.card').forEach((card) => {
+    card.addEventListener('click', () => {
+      const modal = document.createElement('div')
+      modal.className = 'modal'
+      modal.setAttribute('role', 'dialog')
+      modal.setAttribute('aria-modal', 'true')
+      modal.setAttribute('aria-label', card.querySelector('.card-title').textContent)
+
+      const expandedCard = card.cloneNode(true)
+      expandedCard.classList.add('card-clicked')
+      expandedCard.addEventListener('click', (event) => event.stopPropagation())
+      modal.addEventListener('click', () => modal.remove())
+
+      modal.append(expandedCard)
+      document.body.prepend(modal)
     })
-  }
-  arrowTimer = window.setTimeout(() => {
-    buttons.forEach(btn => {
-      chute.setNewAttributes(btn, {
-        "class": "carousel-button-hidden carousel-button-class"
-      })
-      cardCount.setAttribute('class', 'card-count-inactive')
-    })
-  }, time)
-}
-
-//Carousel
-let currentPage = 1
-const buildCarousel = () => {
-  //select needed elements
-  const carousel = document.querySelector('#project-carousel');
-  const projectPrev = document.querySelector('#project-button-prev');
-  const projectNext = document.querySelector('#project-button-next');
-  const cardCount = document.getElementById('card-count')
-  let projectCards = document.querySelectorAll('.project-card');
-  let totalPages = projectCards.length
-
-
-  cardCount.innerHTML = `${currentPage}/${totalPages}`
-
-  //displays the buttons when user moves mouse into carousel
-  carousel.addEventListener("mousemove", () => showCarouselButtons(2000))
-  carousel.addEventListener("click", () => showCarouselButtons(2000))
-
-
-  const handlePrevClick = () => {
-    carousel.insertBefore(projectCards[projectCards.length - 1], projectCards[0]);
-    projectCards = document.querySelectorAll('.project-card');
-    currentPage -= 1
-    if (currentPage == 0) currentPage = totalPages
-    cardCount.innerHTML = `${currentPage}/${totalPages}`
-
-  }
-  const handleNextClick = () => {
-    carousel.appendChild(projectCards[0]);
-    projectCards = document.querySelectorAll('.project-card');
-    currentPage += 1
-    if (currentPage > totalPages) currentPage = 1
-    cardCount.innerHTML = `${currentPage}/${totalPages}`
-
-  };
-  projectNext.addEventListener('click', handleNextClick)
-  projectPrev.addEventListener('click', handlePrevClick)
-
-
-  //Add swipe functionality
-  {
-    let startX = 0;
-    let startY = 0;
-
-    function handleTouchStart(e) {
-      startX = e.changedTouches[0].screenX;
-      startY = e.changedTouches[0].screenY;
-    }
-
-    function handleTouchEnd(e) {
-      //calculate differences in each swipe direction
-      showCarouselButtons(2000)
-      const diffX = e.changedTouches[0].screenX - startX;
-      const diffY = e.changedTouches[0].screenY - startY;
-      const ratioX = Math.abs(diffX / diffY);
-      const ratioY = Math.abs(diffY / diffX);
-      const absDiff = Math.abs(ratioX > ratioY ? diffX : diffY);
-      
-
-      // Ignore minor touches.
-      if (absDiff < 50) {
-        return;
-      }
-      //ensures that only lateral swipes are counted
-      if (ratioX > ratioY) {
-        if (diffX >= 0) {
-          handlePrevClick()
-        } else {
-          handleNextClick()
-        }
-      }
-    }
-    carousel.addEventListener('touchstart', handleTouchStart)
-    carousel.addEventListener('touchend', handleTouchEnd)
-
-  }
-}
-
-
-
-// Shows the card count when the projects section enters the viewport.
-{
-  const cardCount = document.querySelector('#card-count')
-
-  window.addEventListener('scroll', () => {
-    if (carousel.getBoundingClientRect().top <= 200) {
-      cardCount.setAttribute('class', 'card-count-active')
-      window.setTimeout(() => {
-        cardCount.setAttribute('class', 'card-count-inactive')
-      }, 3000)
-    }
   })
 }
 
-
-
-// Set up page load
-window.onload = function () {
+const initializePage = () => {
   setBurgerMenu()
-  buildCarousel()
+  setAboutCardModals()
+}
 
+if (document.readyState === 'loading') {
+  window.addEventListener('DOMContentLoaded', initializePage)
+} else {
+  initializePage()
 }
