@@ -31,7 +31,8 @@ body {
   background: var(--surface);
 }
 
-body.modal-open { overflow: hidden; }
+body.modal-open,
+body.image-expanded-open { overflow: hidden; }
 
 .preload * { transition: none !important; }
 a { color: inherit; text-decoration: none; }
@@ -837,6 +838,51 @@ nav {
   background-repeat: no-repeat;
   background-size: 100% 100%, contain;
   background-color: #07171c;
+  cursor: zoom-in;
+  transition: filter .2s ease;
+}
+
+.compact-project-image:hover {
+  filter: brightness(1.06);
+}
+
+.compact-project-image:focus-visible {
+  outline: 3px solid #ff9a66;
+  outline-offset: -5px;
+}
+
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: grid;
+  place-items: center;
+  padding: clamp(18px, 4vw, 56px);
+  background: rgba(2, 14, 18, .88);
+  backdrop-filter: blur(14px);
+}
+
+.image-lightbox-button {
+  width: min(1100px, 100%);
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .24);
+  border-radius: var(--radius-md);
+  background: #07171c;
+  box-shadow: 0 36px 100px rgba(0, 0, 0, .55);
+  cursor: zoom-out;
+}
+
+.image-lightbox-button:focus-visible {
+  outline: 3px solid #ff9a66;
+  outline-offset: 5px;
+}
+
+.image-lightbox-image {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  cursor: zoom-out;
+  filter: none;
 }
 
 .connectify-card-art {
