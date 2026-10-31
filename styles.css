@@ -720,8 +720,10 @@ nav {
 }
 
 .chute-logo {
-  width: 58px;
-  height: 58px;
+  width: 48px;
+  height: 48px;
+  max-width: 48px;
+  max-height: 48px;
   flex: 0 0 auto;
   object-fit: contain;
   filter: drop-shadow(0 8px 18px rgba(227, 38, 54, .28));
@@ -829,8 +831,8 @@ nav {
 .compact-project-card {
   overflow: hidden;
   display: grid;
-  grid-template-columns: minmax(180px, .85fr) 1.15fr;
-  min-height: 330px;
+  grid-template-rows: auto 1fr;
+  min-height: 520px;
   border: 1px solid rgba(255, 255, 255, .12);
   border-radius: var(--radius-md);
   background: rgba(5, 23, 30, .54);
@@ -844,10 +846,13 @@ nav {
 }
 
 .compact-project-image {
-  min-height: 250px;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  min-height: 0;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%, contain;
+  background-color: #07171c;
 }
 
 .quickbit-card-art {
@@ -1107,7 +1112,7 @@ nav {
   .earlier-work-heading { align-items: flex-start; flex-direction: column; }
   .earlier-work-heading h3 { text-align: left; }
   .compact-project-card { grid-template-columns: 1fr; }
-  .compact-project-image { min-height: 220px; }
+  .compact-project-image { min-height: 0; }
 
   #contact-bar {
     min-height: 330px;
