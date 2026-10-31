@@ -855,8 +855,8 @@ nav {
   background-color: #07171c;
 }
 
-.quickbit-card-art {
-  background-image: linear-gradient(rgba(7, 61, 71, .2), rgba(7, 61, 71, .2)), url("resources/images/Quick-Bit1.png");
+.connectify-card-art {
+  background-image: linear-gradient(rgba(7, 61, 71, .08), rgba(7, 61, 71, .08)), url("resources/images/Connectify.png");
 }
 
 .coderoom-card-art {
