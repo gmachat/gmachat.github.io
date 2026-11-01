@@ -118,7 +118,7 @@ export const portfolioData = Object.freeze({
         heading: 'A homemade React-style UI layer with reusable components.',
         copy: 'Chute.js is a zero-dependency reactive framework created for this portfolio. Its immutable store and named components render the entire page and drive its navigation, card dialogs, image lightboxes, keyboard controls, and live state inspector.',
         details: [
-          'Root-based rendering from shared portfolio data',
+          'Declarative templates mounted by Chute.js from shared portfolio data',
           'Component-owned setup, state selection, rendering, and cleanup',
           'Microtask-batched updates and selective component re-rendering'
         ]

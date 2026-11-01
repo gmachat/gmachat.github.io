@@ -2,6 +2,8 @@
  * Chute.js components for the portfolio interface.
  * The document supplies only #root; these components render and operate the app.
  */
+import { html } from './chutejs.js?v=1.4.0'
+
 let data
 let frameworkVersion
 
@@ -11,51 +13,72 @@ let frameworkVersion
   }
 
   const slot = (name) => document.querySelector(`[data-chute-slot="${name}"]`)
-  const list = (items) => items.map((item) => `<li>${item}</li>`).join('')
+  const list = (items) => items.map((item) => html`<li>${item}</li>`)
 
   const mountAppShell = (app) => app.component({
     name: 'app-shell',
+    target: '#root',
     select: () => true,
-    render: () => {
-      document.querySelector('#root').innerHTML = `
-        <div id="master-grid">
-          <div class="chute-slot" data-chute-slot="hero"></div>
-          <div class="chute-slot" data-chute-slot="navigation"></div>
-          <main class="page-content">
-            <div class="chute-slot" data-chute-slot="about"></div>
-            <div class="chute-slot" data-chute-slot="experience"></div>
-            <div class="chute-slot" data-chute-slot="projects"></div>
-          </main>
-          <div class="chute-slot" data-chute-slot="contact"></div>
-        </div>
-      `
-    }
+    view: () => html`
+      <div id="master-grid">
+        <div class="chute-slot" data-chute-slot="hero"></div>
+        <div class="chute-slot" data-chute-slot="navigation"></div>
+        <main class="page-content">
+          <div class="chute-slot" data-chute-slot="about"></div>
+          <div class="chute-slot" data-chute-slot="experience"></div>
+          <div class="chute-slot" data-chute-slot="projects"></div>
+        </main>
+        <div class="chute-slot" data-chute-slot="contact"></div>
+      </div>
+    `
   })
 
   const mountHero = (app) => app.component({
     name: 'hero',
+    target: () => slot('hero'),
     select: () => true,
-    render: () => {
-      slot('hero').innerHTML = `
-        <header id="portrait-frame">
-          <div id="portait-photo">
-            <div id="welcome-box">
-              <div class="hero-eyebrow">${data.hero.eyebrow}</div>
-              <h1>${data.hero.title}</h1>
-              <p>${data.hero.summary}</p>
-              <div class="hero-actions">
-                <a href="#experience" id="see-more">View experience</a>
-                <a href="./resources/Greg_Machat_Resume2026.pdf" class="hero-secondary" download>Download resume</a>
-              </div>
+    view: () => html`
+      <header id="portrait-frame">
+        <div id="portait-photo">
+          <div id="welcome-box">
+            <div class="hero-eyebrow">${data.hero.eyebrow}</div>
+            <h1>${data.hero.title}</h1>
+            <p>${data.hero.summary}</p>
+            <div class="hero-actions">
+              <a href="#experience" id="see-more">View experience</a>
+              <a href="./resources/Greg_Machat_Resume2026.pdf" class="hero-secondary" download>Download resume</a>
             </div>
           </div>
-          <div id="nav-el"></div>
-        </header>
-      `
-    }
+        </div>
+        <div id="nav-el"></div>
+      </header>
+    `
   })
 
-  const mountNavigation = (app) => app.component({
+  const mountNavigationView = (app) => app.component({
+    name: 'navigation-view',
+    target: () => slot('navigation'),
+    select: () => true,
+    view: () => html`
+      <nav aria-label="Primary navigation">
+        <div id="nav-container">
+          <a href="#portrait-frame" class="nav-item" id="nav-icon" aria-label="Back to top">
+            <div id="nav-logo"><img class="personal-icon" src="./resources/images/logo-transparent.png" alt="Greg Machat logo"></div>
+          </a>
+          <button class="burger-menu" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
+          </button>
+          <ul class="nav-items">
+            ${data.navigation.map((item) => html`<li><a href="${item.href}" class="nav-item nav-link">${item.label}</a></li>`)}
+          </ul>
+        </div>
+      </nav>
+    `
+  })
+
+  const mountNavigationState = (app) => app.component({
     name: 'navigation',
     select: (state) => state.menuOpen,
     setup: ({ dispatch }) => {
@@ -69,28 +92,6 @@ let frameworkVersion
       return () => cleanups.forEach((cleanup) => cleanup())
     },
     render: (menuOpen) => {
-      const host = slot('navigation')
-
-      if (!host.hasChildNodes()) {
-        host.innerHTML = `
-          <nav aria-label="Primary navigation">
-            <div id="nav-container">
-              <a href="#portrait-frame" class="nav-item" id="nav-icon" aria-label="Back to top">
-                <div id="nav-logo"><img class="personal-icon" src="./resources/images/logo-transparent.png" alt="Greg Machat logo"></div>
-              </a>
-              <button class="burger-menu" type="button" aria-label="Toggle navigation" aria-expanded="false">
-                <span class="line line1"></span>
-                <span class="line line2"></span>
-                <span class="line line3"></span>
-              </button>
-              <ul class="nav-items">
-                ${data.navigation.map((item) => `<li><a href="${item.href}" class="nav-item nav-link">${item.label}</a></li>`).join('')}
-              </ul>
-            </div>
-          </nav>
-        `
-      }
-
       const navItems = document.querySelector('.nav-items')
       const burgerMenu = document.querySelector('.burger-menu')
       navItems?.classList.toggle('nav-active', menuOpen)
@@ -102,36 +103,35 @@ let frameworkVersion
 
   const mountAbout = (app) => app.component({
     name: 'about-section',
+    target: () => slot('about'),
     select: () => true,
-    render: () => {
-      slot('about').innerHTML = `
-        <section id="about" class="about-section">
-          <div class="section-heading about-heading">
-            <span>About me</span>
-            <h2>${data.about.title}</h2>
-            <p>${data.about.summary}</p>
+    view: () => html`
+      <section id="about" class="about-section">
+        <div class="section-heading about-heading">
+          <span>About me</span>
+          <h2>${data.about.title}</h2>
+          <p>${data.about.summary}</p>
+        </div>
+        <div class="about-grid">
+          ${data.about.cards.map((card) => html`
+            <article class="card">
+              <h3 class="card-title">${card.title}</h3>
+              <div class="card-photo-frame">
+                <div class="card-photo" id="${card.imageId}" role="img" aria-label="${card.imageLabel}"></div>
+              </div>
+              <div class="card-text-box"><p>${card.copy}</p></div>
+            </article>
+          `)}
+        </div>
+        <div class="skills-panel" aria-labelledby="skills-title">
+          <div>
+            <span class="skills-label">Current toolkit</span>
+            <h3 id="skills-title">Skills built for modern product teams.</h3>
           </div>
-          <div class="about-grid">
-            ${data.about.cards.map((card) => `
-              <article class="card">
-                <h3 class="card-title">${card.title}</h3>
-                <div class="card-photo-frame">
-                  <div class="card-photo" id="${card.imageId}" role="img" aria-label="${card.imageLabel}"></div>
-                </div>
-                <div class="card-text-box"><p>${card.copy}</p></div>
-              </article>
-            `).join('')}
-          </div>
-          <div class="skills-panel" aria-labelledby="skills-title">
-            <div>
-              <span class="skills-label">Current toolkit</span>
-              <h3 id="skills-title">Skills built for modern product teams.</h3>
-            </div>
-            <ul class="skills-list">${list(data.about.skills)}</ul>
-          </div>
-        </section>
-      `
-    }
+          <ul class="skills-list">${list(data.about.skills)}</ul>
+        </div>
+      </section>
+    `
   })
 
   const mountAboutCardDialog = (app) => {
@@ -175,43 +175,42 @@ let frameworkVersion
 
   const mountExperience = (app) => app.component({
     name: 'experience-section',
+    target: () => slot('experience'),
     select: () => true,
-    render: () => {
-      slot('experience').innerHTML = `
-        <section id="experience" class="experience-section">
-          <div class="section-heading">
-            <span>Experience</span>
-            <h2>${data.experience.title}</h2>
-            <p>${data.experience.summary}</p>
-          </div>
-          <div class="timeline">
-            ${data.experience.roles.map((role) => `
-              <article class="timeline-item">
-                <div class="timeline-meta">
-                  <p class="timeline-company">${role.company}</p>
-                  <h3>${role.title}</h3>
-                  <p>${role.dates}</p>
-                  <p>${role.location}</p>
-                </div>
-                <ul>${list(role.details)}</ul>
-              </article>
-            `).join('')}
-          </div>
-          <div class="education-strip">
-            ${data.experience.education.map((item) => `
-              <div>
-                <span>${item.label}</span>
-                <h3>${item.title}</h3>
-                <p>${item.detail}</p>
+    view: () => html`
+      <section id="experience" class="experience-section">
+        <div class="section-heading">
+          <span>Experience</span>
+          <h2>${data.experience.title}</h2>
+          <p>${data.experience.summary}</p>
+        </div>
+        <div class="timeline">
+          ${data.experience.roles.map((role) => html`
+            <article class="timeline-item">
+              <div class="timeline-meta">
+                <p class="timeline-company">${role.company}</p>
+                <h3>${role.title}</h3>
+                <p>${role.dates}</p>
+                <p>${role.location}</p>
               </div>
-            `).join('')}
-          </div>
-        </section>
-      `
-    }
+              <ul>${list(role.details)}</ul>
+            </article>
+          `)}
+        </div>
+        <div class="education-strip">
+          ${data.experience.education.map((item) => html`
+            <div>
+              <span>${item.label}</span>
+              <h3>${item.title}</h3>
+              <p>${item.detail}</p>
+            </div>
+          `)}
+        </div>
+      </section>
+    `
   })
 
-  const renderCompactProject = (project) => `
+  const renderCompactProject = (project) => html`
     <article class="compact-project-card">
       <div class="compact-project-image ${project.artClass}" role="img" aria-label="${project.imageLabel}"></div>
       <div class="compact-project-content">
@@ -219,19 +218,20 @@ let frameworkVersion
         <h3>${project.title}</h3>
         <p>${project.copy}</p>
         <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="compact-project-link">${project.linkLabel}</a>
-        ${project.note ? `<span class="compact-project-note">${project.note}</span>` : ''}
+        ${project.note ? html`<span class="compact-project-note">${project.note}</span>` : ''}
       </div>
     </article>
   `
 
   const mountProjects = (app) => app.component({
     name: 'projects-section',
+    target: () => slot('projects'),
     select: () => true,
-    render: () => {
+    view: () => {
       const flagship = data.projects.flagship
       const framework = data.projects.framework
 
-      slot('projects').innerHTML = `
+      return html`
         <section class="projects-section" aria-labelledby="project-header">
           <div id="project-header" class="section-heading">
             <span>Flagship project</span>
@@ -274,7 +274,7 @@ let frameworkVersion
                     <code data-chute-menu-state>menuOpen: false</code>
                     <code data-chute-card-state>activeCard: null</code>
                     <code data-chute-image-state>activeImage: null</code>
-                    <code data-chute-component-state>components: 11</code>
+                    <code data-chute-component-state>components: 12</code>
                   </div>
                 </div>
               </div>
@@ -292,7 +292,7 @@ let frameworkVersion
               <span>Earlier work</span>
               <h3>Projects that shaped the foundation.</h3>
             </div>
-            <div class="earlier-work-grid">${data.projects.earlier.map(renderCompactProject).join('')}</div>
+            <div class="earlier-work-grid">${data.projects.earlier.map(renderCompactProject)}</div>
           </div>
         </section>
       `
@@ -373,25 +373,24 @@ let frameworkVersion
 
   const mountContact = (app) => app.component({
     name: 'contact-section',
+    target: () => slot('contact'),
     select: () => true,
-    render: () => {
-      slot('contact').innerHTML = `
-        <footer id="contact">
-          <div id="contact-bar">
-            <div class="contact-copy">
-              <span>${data.contact.eyebrow}</span>
-              <h2>${data.contact.title}</h2>
-              <a href="mailto:${data.contact.email}">${data.contact.email}</a>
-            </div>
-            <ul class="contacts" aria-label="Social links">
-              <li class="contact-item"><a href="./resources/Greg_Machat_Resume2026.pdf" class="resume-link" download>Download resume</a></li>
-              <li class="contact-item"><a href="https://www.linkedin.com/in/gregory-machat/" target="_blank" rel="noopener noreferrer" class="contact-link"><img src="./resources/icons/linkedin-icon.svg" alt="LinkedIn" class="contact-icon"></a></li>
-              <li class="contact-item"><a href="https://github.com/gmachat" target="_blank" rel="noopener noreferrer" class="contact-link"><img src="./resources/icons/github-icon.svg" alt="GitHub" class="contact-icon"></a></li>
-            </ul>
+    view: () => html`
+      <footer id="contact">
+        <div id="contact-bar">
+          <div class="contact-copy">
+            <span>${data.contact.eyebrow}</span>
+            <h2>${data.contact.title}</h2>
+            <a href="mailto:${data.contact.email}">${data.contact.email}</a>
           </div>
-        </footer>
-      `
-    }
+          <ul class="contacts" aria-label="Social links">
+            <li class="contact-item"><a href="./resources/Greg_Machat_Resume2026.pdf" class="resume-link" download>Download resume</a></li>
+            <li class="contact-item"><a href="https://www.linkedin.com/in/gregory-machat/" target="_blank" rel="noopener noreferrer" class="contact-link"><img src="./resources/icons/linkedin-icon.svg" alt="LinkedIn" class="contact-icon"></a></li>
+            <li class="contact-item"><a href="https://github.com/gmachat" target="_blank" rel="noopener noreferrer" class="contact-link"><img src="./resources/icons/github-icon.svg" alt="GitHub" class="contact-icon"></a></li>
+          </ul>
+        </div>
+      </footer>
+    `
   })
 
   const mountStateInspector = (app) => app.component({
@@ -423,7 +422,8 @@ let frameworkVersion
     frameworkVersion = options.frameworkVersion || 'development'
     mountAppShell(app)
     mountHero(app)
-    mountNavigation(app)
+    mountNavigationView(app)
+    mountNavigationState(app)
     mountAbout(app)
     mountExperience(app)
     mountProjects(app)

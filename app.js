@@ -1,6 +1,6 @@
-import { createApp, version as chuteVersion } from './chutejs.js?v=1.3.0'
+import { createApp, version as chuteVersion } from './chutejs.js?v=1.4.0'
 import { portfolioData } from './portfolio-data.js?v=2'
-import { mountAll } from './portfolio-components.js?v=3'
+import { mountAll } from './portfolio-components.js?v=4'
 
 const initializePage = () => {
   document.querySelector('.preload')?.classList.remove('preload')

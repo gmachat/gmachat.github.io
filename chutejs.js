@@ -6,8 +6,49 @@
  */
 const identity = (value) => value
 const enqueue = window.queueMicrotask || ((callback) => Promise.resolve().then(callback))
+const templateMarker = Symbol('ChuteTemplate')
 
-  const freezeState = (state) => Object.freeze({ ...state })
+const freezeState = (state) => Object.freeze({ ...state })
+
+const escapeHtml = (value) => String(value)
+  .replaceAll('&', '&amp;')
+  .replaceAll('<', '&lt;')
+  .replaceAll('>', '&gt;')
+  .replaceAll('"', '&quot;')
+  .replaceAll("'", '&#039;')
+
+const serializeValue = (value) => {
+  if (Array.isArray(value)) return value.map(serializeValue).join('')
+  if (value?.type === templateMarker) return serializeTemplate(value)
+  if (value == null || value === false) return ''
+  return escapeHtml(value)
+}
+
+const serializeTemplate = (template) => template.strings.reduce((markup, string, index) => (
+  markup + string + (index < template.values.length ? serializeValue(template.values[index]) : '')
+), '')
+
+const createFragment = (templateResult) => {
+  if (templateResult?.type !== templateMarker) {
+    throw new TypeError('[Chute] A view must return an html template.')
+  }
+
+  const template = document.createElement('template')
+  template.innerHTML = serializeTemplate(templateResult)
+  return template.content.cloneNode(true)
+}
+
+const resolveTarget = (target) => {
+  if (typeof target === 'function') return target()
+  if (typeof target === 'string') return document.querySelector(target)
+  return target
+}
+
+export const html = (strings, ...values) => Object.freeze({
+  type: templateMarker,
+  strings,
+  values
+})
 
 export const createStore = (initialState = {}) => {
     let state = freezeState(initialState)
@@ -76,13 +117,19 @@ export const createApp = ({ state = {}, actions = {} } = {}) => {
 
     const component = ({
       name,
+      target,
+      view,
       select = identity,
       setup,
       render,
       equals = Object.is
     }) => {
-      if (typeof render !== 'function' && typeof setup !== 'function') {
-        throw new TypeError('[Chute] Components require setup or render logic.')
+      if (typeof view !== 'function' && typeof render !== 'function' && typeof setup !== 'function') {
+        throw new TypeError('[Chute] Components require a view, setup, or render function.')
+      }
+
+      if (typeof view === 'function' && !target) {
+        throw new TypeError('[Chute] Components with a view require a target.')
       }
 
       const componentName = name || `component-${++anonymousComponentCount}`
@@ -92,6 +139,17 @@ export const createApp = ({ state = {}, actions = {} } = {}) => {
       }
 
       const renderComponent = typeof render === 'function' ? render : () => {}
+      const mountView = typeof view === 'function'
+        ? (nextSelectedState, previousSelectedState) => {
+            const host = resolveTarget(target)
+
+            if (!host) {
+              throw new Error(`[Chute] Target not found for component: ${componentName}`)
+            }
+
+            host.replaceChildren(createFragment(view(nextSelectedState, previousSelectedState)))
+          }
+        : () => {}
       let cleanup = null
       let unsubscribe = () => {}
       let active = true
@@ -116,6 +174,7 @@ export const createApp = ({ state = {}, actions = {} } = {}) => {
         const previousSelectedState = selectedState
         selectedState = nextSelectedState
         initialized = true
+        mountView(nextSelectedState, previousSelectedState)
         renderComponent(nextSelectedState, previousSelectedState)
       })
 
@@ -142,4 +201,4 @@ export const createApp = ({ state = {}, actions = {} } = {}) => {
     })
   }
 
-export const version = '1.3.0'
+export const version = '1.4.0'
