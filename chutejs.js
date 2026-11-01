@@ -1,17 +1,15 @@
 /**
  * Chute.js
- * A tiny, zero-dependency reactive state framework.
  *
  * Chute keeps application state in one immutable store, routes changes through
  * named actions, and re-renders only components whose selected state changed.
  */
-(function exposeChute(global) {
-  const identity = (value) => value
-  const enqueue = global.queueMicrotask || ((callback) => Promise.resolve().then(callback))
+const identity = (value) => value
+const enqueue = window.queueMicrotask || ((callback) => Promise.resolve().then(callback))
 
   const freezeState = (state) => Object.freeze({ ...state })
 
-  const createStore = (initialState = {}) => {
+export const createStore = (initialState = {}) => {
     let state = freezeState(initialState)
     let pendingState = state
     let renderQueued = false
@@ -59,9 +57,10 @@
     return Object.freeze({ getState, setState, subscribe })
   }
 
-  const createApp = ({ state = {}, actions = {} } = {}) => {
+export const createApp = ({ state = {}, actions = {} } = {}) => {
     const store = createStore(state)
-    const components = new Set()
+    const components = new Map()
+    let anonymousComponentCount = 0
 
     const dispatch = (actionName, payload) => {
       const action = actions[actionName]
@@ -75,15 +74,41 @@
       ))
     }
 
-    const component = ({ select = identity, render, equals = Object.is }) => {
-      if (typeof render !== 'function') {
-        throw new TypeError('[Chute] Components require a render function.')
+    const component = ({
+      name,
+      select = identity,
+      setup,
+      render,
+      equals = Object.is
+    }) => {
+      if (typeof render !== 'function' && typeof setup !== 'function') {
+        throw new TypeError('[Chute] Components require setup or render logic.')
       }
 
+      const componentName = name || `component-${++anonymousComponentCount}`
+
+      if (components.has(componentName)) {
+        throw new Error(`[Chute] Component already exists: ${componentName}`)
+      }
+
+      const renderComponent = typeof render === 'function' ? render : () => {}
+      let cleanup = null
+      let unsubscribe = () => {}
+      let active = true
       let initialized = false
       let selectedState
 
-      const unsubscribe = store.subscribe((nextState) => {
+      const unmount = () => {
+        if (!active) return
+        active = false
+        unsubscribe()
+        if (typeof cleanup === 'function') cleanup()
+        components.delete(componentName)
+      }
+
+      components.set(componentName, unmount)
+
+      unsubscribe = store.subscribe((nextState) => {
         const nextSelectedState = select(nextState)
 
         if (initialized && equals(selectedState, nextSelectedState)) return
@@ -91,31 +116,30 @@
         const previousSelectedState = selectedState
         selectedState = nextSelectedState
         initialized = true
-        render(nextSelectedState, previousSelectedState)
+        renderComponent(nextSelectedState, previousSelectedState)
       })
 
-      components.add(unsubscribe)
-      return unsubscribe
+      cleanup = typeof setup === 'function'
+        ? setup({ dispatch, getState: store.getState })
+        : null
+      return unmount
     }
 
     const destroy = () => {
-      components.forEach((unsubscribe) => unsubscribe())
-      components.clear()
+      Array.from(components.values()).forEach((unmount) => unmount())
     }
+
+    const listComponents = () => Array.from(components.keys())
 
     return Object.freeze({
       component,
       destroy,
       dispatch,
       getState: store.getState,
+      listComponents,
       setState: store.setState,
       subscribe: store.subscribe
     })
   }
 
-  global.Chute = Object.freeze({
-    createApp,
-    createStore,
-    version: '1.0.0'
-  })
-})(window)
+export const version = '1.3.0'

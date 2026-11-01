@@ -48,6 +48,20 @@ h1, h2, h3 {
   grid-template-columns: minmax(24px, 1fr) minmax(0, 1180px) minmax(24px, 1fr);
 }
 
+.chute-slot { display: contents; }
+
+.no-script-fallback {
+  width: min(680px, calc(100% - 40px));
+  margin: 12vh auto;
+  padding: 40px;
+  border-radius: var(--radius-md);
+  background: var(--surface-raised);
+  box-shadow: var(--shadow-lg);
+}
+
+.no-script-fallback p { margin-top: 16px; line-height: 1.7; }
+.no-script-fallback a { color: var(--brand); text-decoration: underline; }
+
 .page-content {
   grid-column: 1 / -1;
 }
