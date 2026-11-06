@@ -46,7 +46,7 @@ let frameworkVersion
             <p>${data.hero.summary}</p>
             <div class="hero-actions">
               <a href="#experience" id="see-more">View experience</a>
-              <a href="./resources/Greg_Machat_Resume2026.pdf" class="hero-secondary" download>Download resume</a>
+              <a href="./resources/Greg_Machat_Resume_2026.pdf" class="hero-secondary" download>Download resume</a>
             </div>
           </div>
         </div>
@@ -384,7 +384,7 @@ let frameworkVersion
             <a href="mailto:${data.contact.email}">${data.contact.email}</a>
           </div>
           <ul class="contacts" aria-label="Social links">
-            <li class="contact-item"><a href="./resources/Greg_Machat_Resume2026.pdf" class="resume-link" download>Download resume</a></li>
+            <li class="contact-item"><a href="./resources/Greg_Machat_Resume_2026.pdf" class="resume-link" download>Download resume</a></li>
             <li class="contact-item"><a href="https://www.linkedin.com/in/gregory-machat/" target="_blank" rel="noopener noreferrer" class="contact-link"><img src="./resources/icons/linkedin-icon.svg" alt="LinkedIn" class="contact-icon"></a></li>
             <li class="contact-item"><a href="https://github.com/gmachat" target="_blank" rel="noopener noreferrer" class="contact-link"><img src="./resources/icons/github-icon.svg" alt="GitHub" class="contact-icon"></a></li>
           </ul>
