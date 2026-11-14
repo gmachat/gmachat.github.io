@@ -4,9 +4,9 @@
  */
 export const portfolioData = Object.freeze({
     hero: {
-      eyebrow: 'Front-end software engineer · U.S. Army veteran',
+      eyebrow: 'Full-stack software engineer · U.S. Army veteran',
       title: 'Greg Machat',
-      summary: 'I build accessible, scalable applications with React, TypeScript, and Next.js, from production UI systems to AI-powered full-stack products.'
+      summary: 'I’m a frontend-focused full-stack engineer with five years of experience delivering enterprise SaaS features and independently deployed web products.'
     },
     navigation: [
       { href: '#about', label: 'About' },
@@ -15,14 +15,14 @@ export const portfolioData = Object.freeze({
       { href: '#contact', label: 'Contact' }
     ],
     about: {
-      title: 'Production-minded engineering with a leadership foundation.',
-      summary: 'I specialize in owning user-facing features from concept through production, pairing thoughtful UI engineering with the calm, accountable leadership I developed as an Army combat medic sergeant.',
+      title: 'Full-stack ownership with a leadership foundation.',
+      summary: 'I’m strongest in React, JavaScript, API integration, and production debugging, with experience across Ruby on Rails, Python, PostgreSQL, and TypeScript/Next.js. I’m comfortable owning user-facing work end to end and collaborating across frontend and backend systems.',
       cards: [
         {
-          title: 'Front-End Engineering',
+          title: 'Full-Stack Engineering',
           imageId: 'full-stack-photo',
           imageLabel: 'Software development workspace',
-          copy: 'Experienced in building reusable React interfaces, accessible component systems, responsive workflows, and AI-enabled product features inside large-scale production applications.'
+          copy: 'Experienced in building reusable React interfaces, API-connected workflows, accessible component systems, and independently deployed products backed by PostgreSQL, Prisma, Python, and Ruby on Rails.'
         },
         {
           title: 'Army Leadership',
@@ -32,59 +32,57 @@ export const portfolioData = Object.freeze({
         }
       ],
       skills: [
-        'JavaScript / TypeScript',
-        'React / Redux',
-        'Next.js / Tailwind CSS',
-        'HTML / CSS',
-        'Accessible UI components',
-        'API and AI integration'
+        'React / JavaScript / TypeScript',
+        'Next.js / Redux / Tailwind CSS',
+        'Ruby on Rails / Python',
+        'GraphQL / REST APIs',
+        'PostgreSQL / Prisma',
+        'Authentication / AI APIs / Accessibility'
       ]
     },
     experience: {
-      title: 'Shipping reliable interfaces at production scale.',
-      summary: 'A progression from intern to primary front-end engineer, with ownership across customer care, interviewing, accessibility, and internationalization.',
+      title: 'Shipping reliable software across the stack.',
+      summary: 'Five years delivering enterprise SaaS features, resolving urgent production issues, and owning frontend work in close partnership with backend, product, and QA teams.',
       roles: [
         {
           company: 'Yello.co',
           title: 'Software Engineer II',
           dates: 'December 2022 – October 2026',
-          location: 'Chicago, Illinois',
+          location: '',
           details: [
-            'Served as the primary front-end engineer on the Customer Care team, resolving urgent production issues and shipping reliable fixes under tight deadlines.',
-            'Built user-facing AI features and reusable React interfaces within a large-scale production application.',
-            'Owned front-end delivery across multiple teams in partnership with engineering, QA, and product stakeholders.'
+            'Served as primary frontend engineer across multiple teams, owning React features, urgent production fixes, and frontend delivery across teams in an enterprise SaaS application.',
+            'Developed user-facing AI capabilities, reusable interfaces, and API-connected workflows in collaboration with product, QA, and backend engineers.',
+            'Investigated production issues spanning frontend state and backend behavior, supporting testing, deployment, and release monitoring.'
           ]
         },
         {
           company: 'Yello.co',
           title: 'Software Engineer I',
           dates: 'September 2021 – December 2022',
-          location: 'Chicago, Illinois',
+          location: '',
           details: [
-            'Led front-end development of a video interviewing platform integrating Google Meet, Zoom, Microsoft Teams, and proprietary video.',
-            'Built scheduling interfaces supporting thousands of interviews across clients and time zones.',
-            'Created reusable, accessible UI components supporting consistent, WCAG-aligned experiences.'
+            'Developed scheduling interfaces supporting thousands of interviews across clients and time zones, with calendar, email/SMS, and video interview integrations.',
+            'Built and maintained interactive React experiences coordinating complex scheduling updates and application state with backend services.',
+            'Created reusable, accessible UI components to improve consistency and support WCAG standards.'
           ]
         },
         {
           company: 'Yello.co',
           title: 'Software Engineer Intern',
           dates: 'June 2021 – September 2021',
-          location: 'Chicago, Illinois',
+          location: '',
           details: [
-            'Improved accessibility across user-facing workflows for people with a range of accessibility needs.',
-            'Enhanced existing Slim, SCSS, jQuery, and React code to create a more intuitive user experience.',
-            'Implemented dynamic translations for international users and shipped interface enhancements through iterative Agile development.'
+            'Improved accessibility, added dynamic translations for international users, and shipped frontend enhancements through iterative Agile development.'
           ]
         },
         {
-          company: 'United States Army',
+          company: 'U.S. Army',
           title: 'Combat Medic Sergeant',
           dates: 'August 2017 – June 2021',
-          location: 'Fort Bragg, North Carolina',
+          location: '',
           details: [
-            'Led and mentored medical teams in demanding operational environments, including deployment to Afghanistan.',
-            'Applied Python to eliminate a large manual data-entry burden and improve an internal process.'
+            'Led medical teams in high-pressure settings, including deployment to Afghanistan.',
+            'Developed a Python process improvement that eliminated thousands of hours of manual data entry.'
           ]
         }
       ],
@@ -92,26 +90,26 @@ export const portfolioData = Object.freeze({
         {
           label: 'Engineering training',
           title: 'Code Platoon',
-          detail: 'Full Stack Software Engineering Bootcamp · 2021'
+          detail: 'Full Stack Software Engineering Bootcamp · June 2021'
         },
         {
           label: 'Education',
           title: 'Rowan University',
-          detail: 'B.A., Health and Physical Education · 2016'
+          detail: 'B.A., Health and Physical Education · December 2016'
         }
       ]
     },
     projects: {
       flagship: {
         title: 'VegasIntel is the project I’m most proud to have built.',
-        summary: 'Designed, engineered, and deployed independently from the data layer through the final interface.',
+        summary: 'Built and deployed independently across the interface, data model, APIs, database workflows, and production operations.',
         kicker: 'Independent developer · 2025 – Present',
         heading: 'Sports intelligence from raw data to confident decisions.',
-        copy: 'VegasIntel combines third-party sports data, market information, and AI-generated insights in responsive dashboards built for fast decision-making.',
+        copy: 'VegasIntel combines sports data, market information, and AI services in responsive dashboards, with automated ingestion, authentication, and access controls.',
         details: [
-          'Next.js, React, TypeScript, Tailwind CSS, PostgreSQL, and Prisma',
-          'Authentication, user access controls, and automated data ingestion',
-          'Production deployment and operations on Vercel'
+          'Next.js, React, TypeScript, Tailwind CSS, PostgreSQL, and Prisma across the UI and data model',
+          'Sports data and AI integrations, automated ingestion workflows, authentication, and user access controls',
+          'Vercel deployment and production debugging across UI, APIs, and database workflows'
         ]
       },
       framework: {
