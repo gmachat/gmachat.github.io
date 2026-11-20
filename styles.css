@@ -189,9 +189,7 @@ nav {
   top: 0;
   z-index: 100;
   height: var(--nav-height);
-  border-bottom: 1px solid rgba(15, 102, 117, .1);
-  background: rgba(246, 248, 247, .88);
-  box-shadow: 0 8px 30px rgba(7, 61, 71, .05);
+  background: var(--surface);
   backdrop-filter: blur(18px);
 }
 
