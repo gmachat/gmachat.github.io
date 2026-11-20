@@ -717,6 +717,13 @@ nav {
   transform: translateX(-50%);
 }
 
+@media (min-width: 901px) {
+  .aml-wordmark {
+    bottom: clamp(42px, 4vw, 72px);
+    width: min(58%, 420px);
+  }
+}
+
 .chute-project {
   background: #111b26;
 }
