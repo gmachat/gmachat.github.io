@@ -229,6 +229,7 @@ let frameworkVersion
     select: () => true,
     view: () => {
       const flagship = data.projects.flagship
+      const current = data.projects.current
       const framework = data.projects.framework
 
       return html`
@@ -246,12 +247,30 @@ let frameworkVersion
                 </div>
               </div>
               <div class="featured-project-content">
-                <div class="flagship-label"><span aria-hidden="true">★</span> My flagship project</div>
                 <p class="project-kicker">${flagship.kicker}</p>
                 <h3>${flagship.heading}</h3>
                 <p>${flagship.copy}</p>
                 <ul>${list(flagship.details)}</ul>
                 <a href="https://vegasintel.vip" target="_blank" rel="noopener noreferrer" class="project-link">Explore VegasIntel</a>
+              </div>
+            </article>
+            <div class="supporting-project-heading aml-project-heading">
+              <span>Current project · In development</span>
+              <h3>What I’m building now.</h3>
+            </div>
+            <article class="featured-project aml-project">
+              <div class="featured-project-visual aml-project-visual">
+                <div class="aml-brand-card">
+                  <img class="aml-mark" src="./resources/images/aml-mark.png?v=1" alt="Artificial Myelination Language neural pathway mark">
+                  <img class="aml-wordmark" src="./resources/images/aml-wordmark.png?v=1" alt="AML wordmark">
+                </div>
+              </div>
+              <div class="featured-project-content">
+                <p class="project-kicker">${current.kicker}</p>
+                <h3>${current.heading}</h3>
+                <p>${current.copy}</p>
+                <p>${current.goal}</p>
+                <ul>${list(current.details)}</ul>
               </div>
             </article>
             <div class="supporting-project-heading">

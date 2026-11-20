@@ -532,23 +532,6 @@ nav {
   transform: perspective(1000px) rotateY(0deg) translateY(-4px);
 }
 
-.flagship-label {
-  align-self: flex-start;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-bottom: 22px;
-  padding: 8px 12px;
-  border: 1px solid rgba(255, 154, 102, .3);
-  border-radius: 999px;
-  background: rgba(230, 106, 44, .1);
-  color: #ffb18a;
-  font-size: .72rem;
-  font-weight: 600;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
-
 .supporting-project-heading {
   display: flex;
   align-items: flex-end;
@@ -685,6 +668,53 @@ nav {
   gap: 8px;
   background: var(--accent);
   color: white;
+}
+
+.aml-project {
+  border-color: rgba(91, 103, 170, .3);
+  background: #15162b;
+}
+
+.aml-project-heading > span {
+  color: #ffb23d;
+}
+
+.aml-project-visual {
+  padding: clamp(28px, 4vw, 48px);
+  background: #18113a;
+}
+
+.aml-brand-card {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(31, 14, 80, .12);
+  border-radius: var(--radius-md);
+  background: #f7f8fc;
+  box-shadow: 0 24px 50px rgba(3, 5, 24, .28);
+}
+
+.aml-mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 118%;
+  height: 118%;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 16px 24px rgba(16, 5, 64, .16));
+  transform: translate(-50%, -50%);
+}
+
+.aml-wordmark {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  bottom: 24px;
+  width: min(44%, 240px);
+  height: auto;
+  transform: translateX(-50%);
 }
 
 .chute-project {

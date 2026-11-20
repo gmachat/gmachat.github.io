@@ -112,6 +112,19 @@ export const portfolioData = Object.freeze({
           'Vercel deployment and production debugging across UI, APIs, and database workflows'
         ]
       },
+      current: {
+        title: 'Artificial Myelination Language',
+        kicker: 'Artificial Myelination Language',
+        heading: 'A programming language for AI coding agents.',
+        copy: 'AML is an experimental language that moves repeated project setup decisions into the compiler. Its Rust compiler provides predictable defaults for structure, validation, error handling, and configuration instead of requiring an agent to recreate those choices for every project.',
+        goal: 'This reduces boilerplate, token use, and repair cycles while producing code that remains readable, predictable, and easy to test.',
+        details: [
+          'A custom syntax with parsing, type checking, semantic validation, clear compiler errors, and a versioned intermediate representation',
+          'Nine output targets: JavaScript, Python, Ruby, Go, Rust, C, Java, C#, and Swift',
+          'Project generation for React components, Vite apps, and full-stack React and Node projects with JSON or PostgreSQL',
+          'VS Code, LSP, and MCP integrations, plus cross-platform installers, CI, and token-use benchmarks'
+        ]
+      },
       framework: {
         heading: 'A homemade React-style UI layer with reusable components.',
         copy: 'Chute.js is a zero-dependency reactive framework created for this portfolio. Its immutable store and named components render the entire page and drive its navigation, card dialogs, image lightboxes, keyboard controls, and live state inspector.',
