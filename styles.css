@@ -203,6 +203,10 @@ nav {
   margin: auto;
 }
 
+@media (min-width: 681px) {
+  #nav-container { transform: translateY(3px); }
+}
+
 #nav-icon,
 #nav-logo { height: 52px; }
 
