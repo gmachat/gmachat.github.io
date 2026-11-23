@@ -1,5 +1,5 @@
 import { createApp, version as chuteVersion } from './chutejs.js?v=1.4.0'
-import { portfolioData } from './portfolio-data.js?v=3'
+import { portfolioData } from './portfolio-data.js?v=4'
 import { mountAll } from './portfolio-components.js?v=4'
 
 const initializePage = () => {

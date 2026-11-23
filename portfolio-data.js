@@ -6,7 +6,7 @@ export const portfolioData = Object.freeze({
     hero: {
       eyebrow: 'Full-stack software engineer · U.S. Army veteran',
       title: 'Greg Machat',
-      summary: 'I’m a frontend focused full stack engineer with five years of experience delivering enterprise SaaS features and independently deployed web products.'
+      summary: 'I’m a frontend focused fullstack engineer with five years of experience delivering enterprise SaaS features and independently deployed web products.'
     },
     navigation: [
       { href: '#about', label: 'About' },
